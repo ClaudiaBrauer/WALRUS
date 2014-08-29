@@ -1,0 +1,27 @@
+
+How to run the Wageningen Lowland Runoff Simulator (WALRUS)
+
+The model code is written in R, but can be easily translated into any vector-oriented interpreted language. The code consists of several scripts. Two functions form the core of the model code: WALRUS_loop and WALRUS_step. In WALRUS_loop the initial conditions are set, a for-loop over each time step is run and output data are organized. For every time step, the function WALRUS_step is called, which contains the actual model computations. Some additional scripts provide help by preprocessing forcing data, setting default parameters, and postprocessing of the model output: figures, water balance computations and analysis of residuals. Another script provides a template in which functions are called for preprocessing, calibrating, running the model and postprocessing.
+
+All functions are combined in an R package called WALRUS. A manual will follow shortly. 
+
+
+WALRUS is licensed under the GPL v3 license.
+
+
+Please refer to these two papers when you use WALRUS:
+
+C.C. Brauer, A.J. Teuling, P.J.J.F. Torfs, R. Uijlenhoet (2014a): 
+The Wageningen Lowland Runoff Simulator (WALRUS): a lumped rainfall-runoff model for catchments with shallow groundwater, 
+Geoscientific Model Development Discussions, 7, 1357--1411, 
+http://www.geosci-model-dev-discuss.net/7/1357/2014/gmdd-7-1357-2014.html
+
+C.C. Brauer, P.J.J.F. Torfs, A.J. Teuling, R. Uijlenhoet (2014b): 
+The Wageningen Lowland Runoff Simulator (WALRUS): application to the Hupsel Brook catchment and Cabauw polder, 
+Hydrology and  Earth System Sciences Discussions, 11, 2091--2148, 
+http://www.hydrol-earth-syst-sci-discuss.net/11/2091/2014/hessd-11-2091-2014.html
+
+If you are not familiar with R yet, check our tutorial:
+
+P.J.J.F. Torfs and C.C. Brauer (2014): A (very) short introduction to R, 
+http://cran.r-project.org/doc/contrib/Torfs+Brauer-Short-R-Intro.pdf.
