@@ -22,20 +22,20 @@ these defaults can easily be changed.
 
 **Code availability**
 
-The WALRUS code will be made available as an R-package through this GitHub somewhere in September. If you want to be kept informed about WALRUS developments, please send me an email so I can add you to my WALRUS-update-mailing-list. You can also visit this site from time to time of course.
+The WALRUS code is available as an R-package through this GitHub. If you want to be kept informed about WALRUS developments, please send me an email so I can add you to my WALRUS-update-mailing-list. You can also visit this site from time to time of course.
 
 
 **Documentation**
 
-WALRUS will be published soon in two peer reviewed, open access, scientific journals. We expect that the final papers will become available at the end of September. Until then, you can read the papers in their in their discussions (pre-review) stage:
+WALRUS is published in two peer reviewed, open access, scientific journals:
 - C.C. Brauer, A.J. Teuling, P.J.J.F. Torfs, R. Uijlenhoet (2014a): 
 The Wageningen Lowland Runoff Simulator (WALRUS): a lumped rainfall-runoff model for catchments with shallow groundwater, 
-Geoscientific Model Development Discussions, 7, 1357--1411, 
-http://www.geosci-model-dev-discuss.net/7/1357/2014/gmdd-7-1357-2014.html
+Geoscientific Model Development, 7, 2313-2332, 
+http://www.geosci-model-dev.net/7/2313/2014/gmd-7-2313-2014.pdf .
 - C.C. Brauer, P.J.J.F. Torfs, A.J. Teuling, R. Uijlenhoet (2014b): 
 The Wageningen Lowland Runoff Simulator (WALRUS): application to the Hupsel Brook catchment and Cabauw polder, 
-Hydrology and  Earth System Sciences Discussions, 11, 2091--2148, 
-http://www.hydrol-earth-syst-sci-discuss.net/11/2091/2014/hessd-11-2091-2014.html
+Hydrology and  Earth System Sciences, 18, 4007-4028,
+www.hydrol-earth-syst-sci.net/18/4007/2014/hess-18-4007-2014.pdf .
 
 
 **Acknowledgements**
