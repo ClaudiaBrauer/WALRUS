@@ -1,0 +1,29 @@
+citHeader("To cite the WALRUS package in publications, please use:")
+
+citEntry(
+  entry = "Article",
+  author = "Brauer, C. C., Teuling, A. J., Torfs, P. J. J. F. and Uijlenhoet, R.",
+  title = "The Wageningen Lowland Runoff Simulator (WALRUS): a lumped rainfall-runoff model for catchments with shallow groundwater",
+  journal = "Geosci. Model Dev.",
+  year = "2014",
+  volume = "7",
+  pages = "2313--2332",
+  url = "http://www.geosci-model-dev.net/7/2313/2014/gmd-7-2313-2014.pdf",
+  textVersion  = "C.C. Brauer, A.J. Teuling, P.J.J.F. Torfs, R. Uijlenhoet (2014): 
+The Wageningen Lowland Runoff Simulator (WALRUS): a lumped rainfall-runoff model for catchments with shallow groundwater, 
+Geoscientific Model Development, 7, 2313-2332 
+http://www.geosci-model-dev.net/7/2313/2014/gmd-7-2313-2014.pdf")
+
+citEntry(
+  entry = "Article",
+  author = "Brauer, C. C., Torfs, P. J. J. F., Teuling, A. J. and Uijlenhoet, R.",
+  title = "The Wageningen Lowland Runoff Simulator (WALRUS): application to the Hupsel Brook catchment and Cabauw polder",
+  journal = "Hydrol. Earth Syst. Sci.",
+  year = "2014",
+  volume = "18",
+  pages = "4007--4028",
+  url = "www.hydrol-earth-syst-sci.net/18/4007/2014/hess-18-4007-2014.pdf",
+textVersion = "C.C. Brauer, P.J.J.F. Torfs, A.J. Teuling, R. Uijlenhoet (2014): 
+The Wageningen Lowland Runoff Simulator (WALRUS): application to the Hupsel Brook catchment and Cabauw polder, 
+Hydrology and  Earth System Sciences, 18, 4007-4028,
+www.hydrol-earth-syst-sci.net/18/4007/2014/hess-18-4007-2014.pdf")
