@@ -22,7 +22,7 @@ these defaults can easily be changed.
 
 **Code availability**
 
-The WALRUS code is available as an R-package through this GitHub. If you want to be kept informed about WALRUS developments, please send me an email so I can add you to my WALRUS-update-mailing-list. You can also visit this site from time to time of course.
+The WALRUS code is available as an R-package through this GitHub (WALRUS_1.0.tar.gz). If you want to be kept informed about WALRUS developments, please send me an email so I can add you to my WALRUS-update-mailing-list. You can also visit this site from time to time of course.
 
 
 **Documentation**
@@ -36,6 +36,18 @@ http://www.geosci-model-dev.net/7/2313/2014/gmd-7-2313-2014.pdf .
 The Wageningen Lowland Runoff Simulator (WALRUS): application to the Hupsel Brook catchment and Cabauw polder, 
 Hydrology and  Earth System Sciences, 18, 4007-4028,
 www.hydrol-earth-syst-sci.net/18/4007/2014/hess-18-4007-2014.pdf .
+The papers are also provided in the documentation-folder, together with a user manual 
+with information on how to get WALRUS running for your own catchment.
+
+
+**User contributions**
+
+I would like to add a folder to this GitHub with examples of applications from different users, so we can learn from each other. So, if you used WALRUS, I would be very much interested in your results. In addition, if you have comments or points for improvement of the model or the manual, please let me know.
+
+
+**Copyright**
+
+WALRUS is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
 
 
 **Acknowledgements**
