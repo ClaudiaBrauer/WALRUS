@@ -19,7 +19,7 @@ model code default relations have been implemented, leaving only
 four parameters which require calibration. For research purposes,
 these defaults can easily be changed. 
 
-![WALRUS model structure](documentation/figures/WALRUS_model_structure_GitHub.png)
+![WALRUS model structure](documentation/figures/model_structure_WALRUS_GitHub.png)
 
 
 **Code availability**
@@ -40,11 +40,17 @@ http://www.geosci-model-dev.net/7/2313/2014/gmd-7-2313-2014.pdf .
 The Wageningen Lowland Runoff Simulator (WALRUS): application to the Hupsel Brook catchment and Cabauw polder, 
 Hydrology and  Earth System Sciences, 18, 4007-4028,
 www.hydrol-earth-syst-sci.net/18/4007/2014/hess-18-4007-2014.pdf .
-The papers are also provided in the documentation-folder, together with a user manual 
-with information on how to get WALRUS running for your own catchment.
 
+WALRUS is also part of my PhD thesis research:
+- C.C. Brauer (2014):
+Modelling rainfall-runoff processes in lowland catchments,
+PhD thesis, Wageningen University, The Netherlands,
+edepot.wur.nl/296285 .
 
-![The two peer reviewed WALRUS-publications](documentation/figures/first_page_GMD_HESS.png)
+To facilitate application of WALRUS, we also wrote a user manual, which is provided in the documentation-folder, together with the two papers.
+
+![The WALRUS-publications](documentation/figures/WALRUS_publications.png)
+
 
 **User contributions**
 
