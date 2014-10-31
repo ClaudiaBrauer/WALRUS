@@ -1,0 +1,42 @@
+================================================================================
+hydroPSO version  :  0.3-4  
+hydroPSO Built    :  R 3.1.1; ; 2014-08-30 00:27:49 UTC; windows  
+R version         :  R version 3.1.0 (2014-04-10)  
+Platform          :  x86_64-w64-mingw32  
+================================================================================
+Starting Time     : Mon Oct 20 17:12:25 2014 
+================================================================================
+Objective Function: WALRUS_for_optim 
+MinMax            : min 
+Dimension         : 4 
+Nmbr of Particles : 2 
+Max Iterations    : 1000 
+Method            : spso2011 
+Topology          : random 
+K                 : 2 
+iter.ini          : 0 
+Boundary wall     : absorbing2011 
+normalise         : FALSE 
+Xini.type         : random 
+Vini.type         : random2011 
+Best update method: sync 
+Random update     : TRUE 
+c1                : 1.19314718055995 
+c2                : 1.19314718055995 
+use.IW            : TRUE 
+IW.w              : 0.721347520444482 
+lambda            : 1 
+use.RG            : FALSE 
+maxfn             : Inf 
+abstol            : -Inf 
+reltol            : 0.0000000149011611938477 
+parallel          : none 
+================================================================================
+Total fn calls    :  294  
+Nmbr of Iterations:  147  
+Regroupings       :  0  
+================================================================================
+Ending Time       :  Mon Oct 20 17:49:30 2014  
+================================================================================
+Elapsed Time      :  37.07 mins  
+================================================================================
