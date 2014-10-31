@@ -44,14 +44,20 @@ The papers are also provided in the documentation-folder, together with a user m
 with information on how to get WALRUS running for your own catchment.
 
 
+![The two peer reviewed WALRUS-publications](documentation/figures/first_page_GMD_HESS.png)
+
 **User contributions**
 
 I would like to add a folder to this GitHub with examples of applications from different users, so we can learn from each other. So, if you used WALRUS, I would be very much interested in your results. In addition, if you have comments or points for improvement of the model or the manual, please let me know.
+
+![Locations of catchments where WALRUS has been applied.](documentation/figures/case_studies_WALRUS.png)
 
 
 **Copyright**
 
 WALRUS is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
+
+![WALRUS logo](documentation/figures/WALRUS_logo_GitHub.png).
 
 
 **Acknowledgements**
@@ -59,5 +65,4 @@ WALRUS is free software: you can redistribute it and/or modify it under the term
 The development and publication of WALRUS has been financially supported by the Hydrology and Quantitative Water Management Group of Wageningen University (The Netherlands - www.wageningenur.nl/hwm) and four Dutch water authorities: Water Board Aa and Maas, Water Board De Dommel, Water Board Noorderzijlvest and Water Board Rijn and IJssel.
 
 
-![WALRUS logo](documentation/figures/WALRUS_logo_GitHub.png)
-
+![WALRUS sponsors](documentation/figures/logos_sponsors_WALRUS.png)
