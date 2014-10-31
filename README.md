@@ -2,8 +2,6 @@
 The Wageningen Lowland Runoff Simulator (WALRUS): a rainfall-runoff model for catchments with shallow groundwater
 ------
 
-![alt tag](documentation/figures/WALRUS_model_structure.png)
-
 The Wageningen Lowland Runoff Simulator (WALRUS) is a novel rainfall--
 runoff model to fill the gap between complex, spatially
 distributed models which are often used in lowland catchments and
@@ -21,10 +19,14 @@ model code default relations have been implemented, leaving only
 four parameters which require calibration. For research purposes,
 these defaults can easily be changed. 
 
+![alt tag](documentation/figures/WALRUS_model_structure.png =70x)
+
 
 **Code availability**
 
 The WALRUS code is available as an R-package through this GitHub (WALRUS_1.0.tar.gz). If you want to be kept informed about WALRUS developments, please send me an email so I can add you to my WALRUS-update-mailing-list. You can also visit this site from time to time of course.
+
+![alt tag](documentation/figures/screenshot_WALRUS_R.jpg =70x)
 
 
 **Documentation**
@@ -57,4 +59,5 @@ WALRUS is free software: you can redistribute it and/or modify it under the term
 The development and publication of WALRUS has been financially supported by the Hydrology and Quantitative Water Management Group of Wageningen University (The Netherlands - www.wageningenur.nl/hwm) and four Dutch water authorities: Water Board Aa and Maas, Water Board De Dommel, Water Board Noorderzijlvest and Water Board Rijn and IJssel.
 
 
+![alt tag](documentation/figures/WALRUS_logo.png =10x)
 
