@@ -45,9 +45,9 @@ WALRUS is also part of my PhD thesis research:
 - C.C. Brauer (2014):
 Modelling rainfall-runoff processes in lowland catchments,
 PhD thesis, Wageningen University, The Netherlands,
-edepot.wur.nl/296285 .
+http://edepot.wur.nl/296285 .
 
-To facilitate application of WALRUS, we also wrote a user manual, which is provided in the documentation-folder, together with the two papers.
+To facilitate application of WALRUS, we wrote a user manual, which is provided in the documentation-folder, together with the two papers.
 
 ![The WALRUS-publications](documentation/figures/WALRUS_publications.png)
 
