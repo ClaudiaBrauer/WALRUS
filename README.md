@@ -24,7 +24,7 @@ these defaults can easily be changed.
 
 **Code availability**
 
-The WALRUS code is available as an R-package through this GitHub (WALRUS_1.0.tar.gz). If you want to be kept informed about WALRUS developments, please send me an email so I can add you to my WALRUS-update-mailing-list. You can also visit this site from time to time of course.
+The WALRUS code is available as an R-package through this GitHub (WALRUS_1.0.tar.gz). If you want to be kept informed about WALRUS developments, please send me an email (claudia.brauer-at-wur.nl) so I can add you to my WALRUS-update-mailing-list. You can also visit this site from time to time of course.
 
 ![Screenshot of WALRUS in RStudio](documentation/figures/screenshot_WALRUS_R_GitHub.jpg)
 
