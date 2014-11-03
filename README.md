@@ -54,7 +54,7 @@ To facilitate application of WALRUS, we wrote a user manual, which is provided i
 
 **User contributions**
 
-I would like to add a folder to this GitHub with examples of applications from different users, so we can learn from each other. So, if you used WALRUS, I would be very much interested in your results. In addition, if you have comments or points for improvement of the model or the manual, please let me know.
+I would like to add a folder to this GitHub with examples of applications from different users, so we can learn from each other. So, if you used WALRUS, I would be very much interested in your results. In addition, if you have comments or points for improvement of the model or the manual, please let me know (email claudia.brauer-at-wur.nl).
 
 ![Locations of catchments where WALRUS has been applied.](documentation/figures/case_studies_WALRUS.png)
 
