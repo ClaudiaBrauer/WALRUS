@@ -2,8 +2,7 @@
 The Wageningen Lowland Runoff Simulator (WALRUS): a lumped rainfall-runoff model for catchments with shallow groundwater
 ------
 
-The Wageningen Lowland Runoff Simulator (WALRUS) is a novel rainfall--
-runoff model to fill the gap between complex, spatially
+The Wageningen Lowland Runoff Simulator (WALRUS) is a novel rainfall-runoff model to fill the gap between complex, spatially
 distributed models which are often used in lowland catchments and
 simple, parametric  (conceptual) models which have mostly been developed for
 sloping catchments. WALRUS explicitly accounts for processes
