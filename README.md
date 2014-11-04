@@ -30,7 +30,7 @@ The WALRUS code is available as an R-package through this GitHub (WALRUS_1.0.tar
 
 **Documentation**
 
-WALRUS is published in two peer reviewed, open access, scientific journals:
+WALRUS and its first applications have been published in two peer reviewed, open access, scientific journals:
 - C.C. Brauer, A.J. Teuling, P.J.J.F. Torfs, R. Uijlenhoet (2014a): 
 The Wageningen Lowland Runoff Simulator (WALRUS): a lumped rainfall-runoff model for catchments with shallow groundwater, 
 Geoscientific Model Development, 7, 2313-2332, 
@@ -40,7 +40,7 @@ The Wageningen Lowland Runoff Simulator (WALRUS): application to the Hupsel Broo
 Hydrology and  Earth System Sciences, 18, 4007-4028,
 www.hydrol-earth-syst-sci.net/18/4007/2014/hess-18-4007-2014.pdf .
 
-WALRUS is also part of my PhD thesis research:
+WALRUS is also part of a PhD thesis:
 - C.C. Brauer (2014):
 Modelling rainfall-runoff processes in lowland catchments,
 PhD thesis, Wageningen University, The Netherlands,
@@ -53,7 +53,7 @@ To facilitate application of WALRUS, we wrote a user manual, which is provided i
 
 **User contributions**
 
-I would like to add a folder to this GitHub with examples of applications from different users, so we can learn from each other. So, if you used WALRUS, I would be very much interested in your results. In addition, if you have comments or points for improvement of the model or the manual, please let me know (email claudia.brauer-at-wur.nl).
+We would like to add a folder to this GitHub with examples of applications from different users, so we can learn from each other. So, if you used WALRUS, we would be very much interested in your results. In addition, if you have comments or points for improvement of the model or the manual, please let me know (email claudia.brauer-at-wur.nl).
 
 ![Locations of catchments where WALRUS has been applied.](documentation/figures/case_studies_WALRUS.png)
 
