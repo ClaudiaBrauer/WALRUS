@@ -81,20 +81,20 @@ WALRUS_preprocessing = function(f, dt)
     }
   }
   # add t=-1 (necessary as starting point for cumulative functions)
+  d_initial = date[1] - (date[2]-date[1]) *dt
   d_end     = date[nrow(f)] + (date[nrow(f)]-date[nrow(f)-1]) *dt
-  
-  # write date as global variable
-  forcing_date     <<- c(date, d_end)
-  
+  date      = c(d_initial, date, d_end)
   # make functions from forcing time series
-  func_P      <<- cmpfun(approxfun(forcing_date, cumsum(c(0,f$P     )), rule=2))
-  func_ETpot  <<- cmpfun(approxfun(forcing_date, cumsum(c(0,f$ETpot )), rule=2))
-  func_Qobs   <<- cmpfun(approxfun(forcing_date, cumsum(c(0,f$Q     )), rule=2))
-  func_fXG    <<- cmpfun(approxfun(forcing_date, cumsum(c(0,f$fXG   )), rule=2))
-  func_fXS    <<- cmpfun(approxfun(forcing_date, cumsum(c(0,f$fXS   )), rule=2))
-  func_hSmin  <<- cmpfun(approxfun(forcing_date, c(f$hSmin,f$hSmin[nrow(f)]), rule=2))
-  func_dGobs  <<- cmpfun(approxfun(forcing_date, c(f$dG   ,f$hSmin[nrow(f)]), rule=2))
+  func_P      <<- cmpfun(approxfun(date, cumsum(c(0,0,f$P     )), rule=2))
+  func_ETpot  <<- cmpfun(approxfun(date, cumsum(c(0,0,f$ETpot )), rule=2))
+  func_Qobs   <<- cmpfun(approxfun(date, cumsum(c(0,0,f$Q     )), rule=2))
+  func_fXG    <<- cmpfun(approxfun(date, cumsum(c(0,0,f$fXG   )), rule=2))
+  func_fXS    <<- cmpfun(approxfun(date, cumsum(c(0,0,f$fXS   )), rule=2))
+  func_hSmin  <<- cmpfun(approxfun(date, c(f$hSmin[1],f$hSmin,f$hSmin[nrow(f)]), rule=2))
+  func_dGobs  <<- cmpfun(approxfun(date, c(f$dG   [1],f$dG   ,f$hSmin[nrow(f)]), rule=2))
   
+  # write date as global varaible
+  forcing_date     <<- date
 
   # make output date vector and belonging function
   nr               =   floor((length(forcing_date)-1)/dt)
