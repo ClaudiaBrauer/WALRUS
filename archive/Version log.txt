@@ -1,0 +1,125 @@
+
+
+1.02: 
+==============================================
+
+Problem 1: 
+-------
+
+In the loop-function, if the initial groundwater level cannot be computed when cG is too high and/or cD too small, 
+Gfrac (the fraction of discharge originating from groundwater) is decreased automatically until this is possible. 
+In exceptional cases, it was possible that the fraction was decreased sufficiently, but initial groundwater level 
+could still not be computed because the groundwater level was between 1 and 0 mm below surface. 
+
+
+Solution 1: 
+---------
+
+The lower boundary for the solver-function is decreased from 1 to 0.
+
+Code in version 1.01 (in loop-script):
+      o$dG  [1]  = uniroot(f=function(x){return((pars$cD-x-o$hS[1])*(pars$cD-x)/pars$cG - o$Q[1]*pars$Gfrac)},
+                         lower=1, upper=(pars$cD-o$hS[1]))$root
+
+Code in version 1.02 (in loop-script):
+      o$dG  [1]  = uniroot(f=function(x){return((pars$cD-x-o$hS[1])*(pars$cD-x)/pars$cG - o$Q[1]*pars$Gfrac)},
+                         lower=0, upper=(pars$cD-o$hS[1]))$root
+
+
+Problem 2: 
+-------
+
+In the default relation between dG and dVeq (called func_dVeq_dG) an error occurs when the groundwater table is 
+shallower than the capillary fringe and ponding does not yet occur. What happens, is that when the soil 
+becomes very wet, dG and dVeq decrease until dG drops below psi_ae. Then, dVeq increases instantly to dG.
+This should only be the case when the groundwater level is above the surface and dVeq and dG rise together. 
+
+
+Solution 2: 
+---------
+
+The default relation between dG and dVeq contains a separate section for when dG is between 0 (soil surface) 
+and psi_ae (capillary fringe). In this situation, dVeq=0. 
+
+Code in version 1.01 (in defaults-script):
+      func_dVeq_dG_default  = function(x, pars){if(x>pars$psi_ae){
+                         (x - pars$psi_ae/(1-pars$b) - x*(x/pars$psi_ae)^(-1/pars$b) + 
+                         pars$psi_ae/(1-pars$b) *(x/pars$psi_ae)^(1-1/pars$b))*pars$theta_s}else{x}}
+
+Code in version 1.02 (in defaults-script):
+	func_dVeq_dG_default  = function(x, pars){if(x>pars$psi_ae){
+                         (x - pars$psi_ae/(1-pars$b) - x*(x/pars$psi_ae)^(-1/pars$b) + 
+                         pars$psi_ae/(1-pars$b) *(x/pars$psi_ae)^(1-1/pars$b))*pars$theta_s
+                         }else if(x<0){x
+                         }else{0}}
+
+
+Problem 3: 
+-------
+
+If only the first discharge observation is given, because no data are available, the preprocessing function
+returns an error because interpolation is not possible. 
+
+
+Solution 3: 
+---------
+
+Add argument to interpolation function to use last known value to fill trailing NAs. 
+
+Code in version 1.01 (in preprocessing-script - similar for ETpot, Q, fXG, fXS, hSmin, dG):
+	f$Q = na.approx(f$Q)}
+
+Code in version 1.02 (in preprocessing-script):
+	f$Q = na.approx(f$Q, rule=2)}
+
+
+
+1.01: fixed error in generation initial values
+==============================================
+
+Problem: 
+-------
+
+In the preprocessing-function, an extra line was created between the initial values 
+and the first model output, causing the model to start with Q=0. I also moved the global 
+variable definition of forcing_date upward (not necessary, but looks better).
+
+
+Solution: 
+---------
+
+Code in version 1.0 (in preprocessing-script):
+
+	  # add t=-1 (necessary as starting point for cumulative functions)
+	  d_initial = date[1] - (date[2]-date[1]) *dt
+	  d_end     = date[nrow(f)] + (date[nrow(f)]-date[nrow(f)-1]) *dt
+	  date      = c(d_initial, date, d_end)
+	  
+	  # make functions from forcing time series
+	  func_P      <<- cmpfun(approxfun(date, cumsum(c(0,0,f$P     )), rule=2))
+	  func_ETpot  <<- cmpfun(approxfun(date, cumsum(c(0,0,f$ETpot )), rule=2))
+	  func_Qobs   <<- cmpfun(approxfun(date, cumsum(c(0,0,f$Q     )), rule=2))
+	  func_fXG    <<- cmpfun(approxfun(date, cumsum(c(0,0,f$fXG   )), rule=2))
+	  func_fXS    <<- cmpfun(approxfun(date, cumsum(c(0,0,f$fXS   )), rule=2))
+	  func_hSmin  <<- cmpfun(approxfun(date, c(f$hSmin[1],f$hSmin,f$hSmin[nrow(f)]), rule=2))
+	  func_dGobs  <<- cmpfun(approxfun(date, c(f$dG   [1],f$dG   ,f$hSmin[nrow(f)]), rule=2))  
+		
+	  # write date as global varaible
+	  forcing_date     <<- date
+
+Code in version 1.01 (in preprocessing-script):
+
+	  # add t=-1 (necessary as starting point for cumulative functions)
+	  d_end     = date[nrow(f)] + (date[nrow(f)]-date[nrow(f)-1]) *dt
+	  
+	  # write date as global variable
+	  forcing_date     <<- c(date, d_end)
+	  
+	  # make functions from forcing time series
+	  func_P      <<- cmpfun(approxfun(forcing_date, cumsum(c(0,f$P     )), rule=2))
+	  func_ETpot  <<- cmpfun(approxfun(forcing_date, cumsum(c(0,f$ETpot )), rule=2))
+	  func_Qobs   <<- cmpfun(approxfun(forcing_date, cumsum(c(0,f$Q     )), rule=2))
+	  func_fXG    <<- cmpfun(approxfun(forcing_date, cumsum(c(0,f$fXG   )), rule=2))
+	  func_fXS    <<- cmpfun(approxfun(forcing_date, cumsum(c(0,f$fXS   )), rule=2))
+	  func_hSmin  <<- cmpfun(approxfun(forcing_date, c(f$hSmin,f$hSmin[nrow(f)]), rule=2))
+	  func_dGobs  <<- cmpfun(approxfun(forcing_date, c(f$dG   ,f$hSmin[nrow(f)]), rule=2))

@@ -81,7 +81,9 @@ show_func_W_dV = function(){print(get("func_W_dV", envir=.WALRUSenv))}
 
 func_dVeq_dG_default  = function(x, pars){if(x>pars$psi_ae){
                          (x - pars$psi_ae/(1-pars$b) - x*(x/pars$psi_ae)^(-1/pars$b) + 
-                         pars$psi_ae/(1-pars$b) *(x/pars$psi_ae)^(1-1/pars$b))*pars$theta_s}else{x}}
+                         pars$psi_ae/(1-pars$b) *(x/pars$psi_ae)^(1-1/pars$b))*pars$theta_s
+                         }else if(x<0){x
+                         }else{0}}
 
 assign("func_dVeq_dG", cmpfun(func_dVeq_dG_default), envir = .WALRUSenv)
 

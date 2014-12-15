@@ -10,7 +10,7 @@ This package provides all model code and examples to run WALRUS.
 }
 \details{
 A user manual is provided on www.GitHub.com/ClaudiaBrauer/WALRUS,
-containing explainions of the model structure, model variables, model parameters and
+containing explanations of the model structure, model variables, model parameters and
 what these represent. It also gives detailed tips on how to get WALRUS
 running for your own catchment.
 }

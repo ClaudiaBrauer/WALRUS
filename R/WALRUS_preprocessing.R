@@ -47,22 +47,22 @@ WALRUS_preprocessing = function(f, dt)
     f$P = na.fill(f$P,0)}
   if(is.na(sum(f$ETpot))==TRUE)
     {print(paste("Note: missing ETpot interpolated (", length(which(is.na(f$ETpot))), " cases)", sep=""))
-    f$ETpot = na.approx(f$ETpot)}
+    f$ETpot = na.approx(f$ETpot, rule=2)}
   if(is.na(sum(f$Q))==TRUE)
     {print(paste("Note: missing Q interpolated (", length(which(is.na(f$Q))), " cases)", sep=""))
-    f$Q = na.approx(f$Q)}
+    f$Q = na.approx(f$Q, rule=2)}
   if(is.na(sum(f$fXG))==TRUE)
     {print(paste("Note: missing fXG interpolated (", length(which(is.na(f$fXG))), " cases)", sep=""))
-    f$fXG = na.approx(f$fXG)}
+    f$fXG = na.approx(f$fXG, rule=2)}
   if(is.na(sum(f$fXS))==TRUE)
     {print(paste("Note: missing fXS interpolated (", length(which(is.na(f$fXS))), " cases)", sep=""))
-    f$fXS = na.approx(f$fXS)}
+    f$fXS = na.approx(f$fXS, rule=2)}
   if(is.na(sum(f$hSmin))==TRUE)
     {print(paste("Note: missing fXS interpolated (", length(which(is.na(f$hSmin))), " cases)", sep=""))
-    f$hSmin = na.approx(f$hSmin)}
+    f$hSmin = na.approx(f$hSmin, rule=2)}
   if(is.na(sum(f$dG))==TRUE)
     {print(paste("Note: missing dG interpolated (", length(which(is.na(f$dG))), " cases)", sep=""))
-    f$dG = na.approx(f$dG)}
+    f$dG = na.approx(f$dG, rule=2)}
   
   # write date as number of seconds since 1970
   if(is.null(f$date)==FALSE)

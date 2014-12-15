@@ -42,11 +42,11 @@ WALRUS_loop = function(pars)
   # INITIAL CONDITIONS    
   # Q[1] is necessary for stepsize-check (if dQ too large)
   o$Q     [1]  = func_Qobs(output_date[2]) / (output_date[2]-output_date[1]) *3600 
+
   # hS from first Q measurement and Qh-relation
   o$hS    [1]  = uniroot(f=function(x){return(
                  get("func_Q_hS", envir=.WALRUSenv)(x,pars,hSmin=func_hSmin(output_date[1]))-o$Q[1])},
                  lower=0, upper=pars$cD)$root 
-  
 # dG and hQ    
   if(is.null(pars$dG0)==FALSE)                           # if dG0 provided 
   {
@@ -54,17 +54,17 @@ WALRUS_loop = function(pars)
     if((pars$cD-o$dG[1])<o$hS[1])                        # if groundwater below surface water level
     {
       o$hQ [1] = o$Q[1]*pars$cQ                          # all Q from quickflow
-    }else{                                            # if groundwater above surface water level
+    }else{                                               # if groundwater above surface water level
       o$hQ [1] = max(0,(o$Q[1]-(pars$cD-o$dG[1]-o$hS[1])*(pars$cD-o$dG[1])/pars$cG) *pars$cQ)
     }
 
-  }else{                                              # if dG0 not provided 
-    if(is.null(pars$Gfrac)==TRUE){pars$Gfrac=1}             # if Gfrac also not provided, make Gfrac 1
+  }else{                                                 # if dG0 not provided 
+    if(is.null(pars$Gfrac)==TRUE){pars$Gfrac=1}          # if Gfrac also not provided, make Gfrac 1
     # if fGS not possible with current hS and cG, make Gfrac smaller
     while(((pars$cD-o$hS[1])*pars$cD/pars$cG) < (pars$Gfrac*o$Q[1])) {pars$Gfrac = pars$Gfrac/2}
     # compute dG leading to the right fGS
     o$dG  [1]  = uniroot(f=function(x){return((pars$cD-x-o$hS[1])*(pars$cD-x)/pars$cG - o$Q[1]*pars$Gfrac)},
-                         lower=1, upper=(pars$cD-o$hS[1]))$root
+                         lower=0, upper=(pars$cD-o$hS[1]))$root
     o$hQ  [1]  = o$Q[1] *(1-pars$Gfrac) *pars$cQ    
   }
   # dependent variables
