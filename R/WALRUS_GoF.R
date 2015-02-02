@@ -40,8 +40,9 @@ WALRUS_GoF = function(o, pars, n)
   pars$aG        = 1-pars$aS  
   
   # compute goodness of fit measures and put them in the same table
-  pars$NS     = round(1- sum((    o$Qobs  -     o$Q )^2, na.rm=TRUE) / sum((    o$Qobs  - mean(    o$Qobs ))^2, na.rm=TRUE), 3)
-  pars$NSlog  = round(1- sum((log(o$Qobs) - log(o$Q))^2, na.rm=TRUE) / sum((log(o$Qobs) - mean(log(o$Qobs)))^2, na.rm=TRUE), 3)
+  pars$NS     = round(1- sum((o$Qobs - o$Q )^2, na.rm=TRUE) / sum((o$Qobs - mean(o$Qobs))^2, na.rm=TRUE), 3)
+  pars$NSlog  = if(min(c(o$Q,o$Qobs)) > 0) {pars$NSlog = round(1- sum((log(o$Qobs) - log(o$Q))^2, na.rm=TRUE) / 
+                                            sum((log(o$Qobs) - mean(log(o$Qobs)))^2, na.rm=TRUE), 3)}else{NA}
   pars$meanSS = round(mean((o$Q - o$Qobs)^2, na.rm=TRUE), 3)
   
   # write table

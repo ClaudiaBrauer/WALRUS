@@ -46,7 +46,6 @@ WALRUS_shiny_figures = function(o, pars)
   o$fXG        = c(NA,func_fXG  (step_end) - func_fXG  (step_start))
   o$fXS        = c(NA,func_fXS  (step_end) - func_fXS  (step_start))
   o$hSmin      = func_hSmin(output_date)
-  o$Gobs       = func_Gobs (output_date)
   o$d          = output_date
     
   # cut off the warming-up
@@ -88,95 +87,109 @@ WALRUS_shiny_figures = function(o, pars)
   par(oma=c(2,0,0,0), mar=c(0.2,3.3,0.2,3), mfrow=c(4,1), mgp=c(2,0.3,0), 
       tcl=-0.2, xaxs="i", yaxs="i", cex=size, cex.axis=size, cex.lab=size)         
   
-    
-    
-  ############################
-  # FIGURE 1: Qobs, Q, P, fGS
-  ############################
   
-  # left y-axis: Qobs, Qmod
-  plot(o$d, o$Qobs, col="black", type="l", ylim=c(0,1.1*max(c(o$Qobs, o$Q))),
-  xlab="", ylab=substitute(paste("Q [mm ",res,""^{-1}, "]")), xaxt="n") 
-  lines(o$d, o$Q, col="dodgerblue")  
-  lines(o$d, o$fGS, col="orange")   
-   
+  ###########################
+  # FIGURE 1: Qobs, Q, fGS, P
+  ###########################
+  
+  # left y-axis: fGS, Qobs, Qmod
+  plot(o$d, o$fGS, col="orange", type="l", ylim=c(0,1.1*max(c(o$Qobs, o$Q))),
+       xlab="", ylab=substitute(paste("Q [mm ",res,""^{-1}, "]")), xaxt="n") 
+  lines(o$d, o$Qobs, col="black")  
+  lines(o$d, o$Q   , col="dodgerblue")  
+  
   # right y-axis: P (as bars from the top)
   par(new = TRUE)                                                 
   plot(o$d, o$P, col = "purple", type="h", ylim=c(3*max(o$P),0),
        xlab="", ylab="", xaxt="n", yaxt="n") 
-  axis(side=4, at=c(0,ceiling(max(o$P))/2,ceiling(max(o$P))), labels=c("0  ",ceiling(max(o$P))/2,ceiling(max(o$P))), cex=size)   
-  mtext(substitute(paste("P [mm ",res,""^{-1}, "]")), side=4, line=1.5, cex=0.7*size*1.5)
-      
+  axis(side=4, at=c(0,ceiling(max(o$P))/2,ceiling(max(o$P))), labels=c("0  ",ceiling(max(o$P))/2,ceiling(max(o$P))))   
+  mtext(substitute(paste("P [mm ",res,""^{-1}, "]")), side=4, line=1.5, cex=0.7)
+  
   # legends
-  legend(c("P",expression(paste("Q"[obs])),expression(paste("Q"[mod])),expression(paste("f"[GS]))),      
-         col=c("purple","black","dodgerblue","orange"),
-         x="topleft", lty=1,  bty="n", cex=1)  
-  legend(paste("NS=", round(NS,2)), x="topright",  bty="n")
+  legend(c(expression(paste("Q"[obs])),expression(paste("Q"[mod])),expression(paste("f"[GS])), "P"),      
+         col=c("black","dodgerblue", "orange", "purple"),
+         x="topleft", lty=1,  bty="n")  
   
   
   ###########################
   # FIGURE 2: ETpot and ETact
   ###########################
   
-  # compute 5-day moving averages
-  ETpot_ma = c()
-  ETact_ma = c()
-  for(j in 1:L)
-  {
-    ETpot_ma[j] = mean(o$ETpot[o$d > (o$d[j]-2.5*24*60*60) & o$d <= (o$d[j]+2.5*24*60*60)])
-    ETact_ma[j] = mean(o$ETact[o$d > (o$d[j]-2.5*24*60*60) & o$d <= (o$d[j]+2.5*24*60*60)])
-  }
-                
-  # left y-axis: ET (5-days moving average)
-  plot(o$d, ETpot_ma, col="grey", type="l", ylim=range(0,ETpot_ma*1.04),  
+  # left y-axis: 5-day moving averages of ETpot and ETact
+  plot(o$d, rollmean(o$ETpot, round(120/mean(dt)), fill=NA), col="grey", 
+       type="l", ylim=range(0,rollmean(o$ETpot, round(120/mean(dt)))*1.05),  
        xlab="", ylab=substitute(paste("ET [mm d"^{-1}, "]")), xaxt="n")
-  lines(o$d, ETact_ma, col="red")   
+  lines(o$d, rollmean(o$ETact, round(120/mean(dt)), fill=NA), col="red")   
+  
   
   # right y-axis: W
   par(new = TRUE)   
   plot(o$d, o$W, col="purple", type="l", ylim=c(0,1),
        xlab="", ylab="", xaxt="n", yaxt="n")
-  axis(side=4, at=c(0,0.5,1), labels=c(" 0","0.5","1 "), cex=size)                             
-  mtext(substitute(paste("W [-]")), side=4, line=1.5, cex=0.7*size*1.5)
+  axis(side=4, at=c(0,0.5,1), labels=c(" 0","0.5","1 "))                             
+  mtext(substitute(paste("W [-]")), side=4, line=1.5, cex=0.7)
   
   # legend
   legend(c(expression(paste("ET"[pot])), expression(paste("ET"[act])), expression(paste("W"))), 
          col=c("grey","red","purple"), x="topleft", lty=1, bty="n")
-
+  
   
   ######################
-  # FIGURE 3: dV
+  # FIGURE 3: dV, dG, hS
   ######################
   
   # dV, dG, cD-hS (all in m below soil surface)
-  plot(o$d, o$dV/1000, col="red", type="l", ylim=c(max(o$dV)/1000,0),
+  plot(o$d, o$dV/1000, col="red", type="l", ylim=(range(o$dV,o$dG,pars$cD-o$hS,pars$cD,0)[2:1])/1000,
        xlab="", ylab=substitute(paste("d [m]")), yaxs="r", xaxt="n")
   lines(o$d, o$dG/1000, col="orange")
-    
-  # legend
-  legend(expression(paste("d"[V])),
-         col=c("red"), 
-         x="topleft", lty=1, bty="n")
-  
-  ######################
-  # FIGURE 4: dG+hS
-  ######################
-  
-  # dV, dG, cD-hS (all in m below soil surface)
-  plot(o$d, o$dG/1000, col="orange", type="l", ylim=(range(o$dV,o$dG,pars$cD-o$hS,pars$cD,0)[2:1])/1000,
-       xlab="", ylab=substitute(paste("d [m]")), yaxs="r", xaxt="n")
   lines(o$d, (pars$cD-o$hS)/1000, col="dodgerblue")
   abline(h=pars$cD/1000, col="dodgerblue", lty=2)
   abline(h=0, col="orange", lty=2)
   
   # legend
-  legend(c(expression(paste("d"[G])), expression(paste("c"[D],"-h"[S]))),
-         col=c("orange","dodgerblue"), 
+  legend(c(expression(paste("d"[V])), expression(paste("d"[G])), expression(paste("c"[D],"-h"[S]))),
+         col=c("red","orange","dodgerblue"), 
          x="topleft", lty=1, bty="n")
+  
+  
+  #########################
+  # FIGURE 4: fGS, fXS, fXG
+  #########################
+  
+  # Q, fGS, fXS, fXG
+  plot(o$d, o$fGS, type="n", ylim=range(o$fGS, o$fXS, o$fXG),
+       xlab="", ylab=substitute(paste("f [mm ",res,""^{-1}, "]")), yaxs="r", xaxt="n") 
+  polygon(c(o$d,o$d[nrow(o):1]), c(o$Q,rep(0,nrow(o))), col="grey90", border=NA)
+  lines(o$d, o$fGS, col="orange")   
+  lines(o$d, o$fXS, col="dodgerblue" , lty="33") 
+  lines(o$d, o$fXG, col="orange"     , lty="36")   
+  
+  
+  # legends
+  box()
+  legend(c(expression(paste("Q")),expression(paste("f"[GS])),expression(paste("f"[XG])),expression(paste("f"[XS]))),
+         col = c("grey90","orange","orange","dodgerblue"),
+         x="topleft", lty=c(1,1,2,2), lwd=c(5,1,1,1), bty="n")
+  if(is.null(pars$cS)==TRUE)
+  {
+    legend(sapply(c(bquote(paste("c"[W], " = ",.(round(pars$cW)), " mm")),
+                    bquote(paste("c"[V], " = ",.(round(pars$cV)), " h")), 
+                    bquote(paste("c"[G], " = ",.(round(pars$cG/1000000)), " x 10"^6,"mm h")),
+                    bquote(paste("c"[Q], " = ",.(round(pars$cQ)), " h"))), as.expression),
+           col = c("purple","red","orange","forestgreen"),
+           x="topright", pch=16, bty="n")
+  }else{
+    legend(sapply(c(bquote(paste("c"[W], " = ",.(round(pars$cW)), " mm")),
+                    bquote(paste("c"[V], " = ",.(round(pars$cV)), " h")), 
+                    bquote(paste("c"[G], " = ",.(round(pars$cG/1000000)), " x 10"^6,"mm h")),
+                    bquote(paste("c"[Q], " = ",.(round(pars$cQ)), " h")),
+                    bquote(paste("c"[S], " = ",.(round(pars$cS)), " mm h"^{-1}))), as.expression),
+           col = c("purple","red","orange","forestgreen","dodgerblue"),
+           x="topright", pch=16, bty="n")
+  }
   
   # add the x-axis
   axis(side=1, at=place_xlabel, labels=xlabel)
-    
   
   }  # end of function
  

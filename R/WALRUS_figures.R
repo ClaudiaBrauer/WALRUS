@@ -80,11 +80,11 @@ WALRUS_figures = function(o, pars, n)
       }  
     
     
-    ######################
-    # FIGURE 1: Qobs, Q, P
-    ######################
+    ###########################
+    # FIGURE 1: Qobs, Q, fGS, P
+    ###########################
     
-    # left y-axis: Qobs, Qmod
+    # left y-axis: fGS, Qobs, Qmod
     plot(o$d, o$fGS, col="orange", type="l", ylim=c(0,1.1*max(c(o$Qobs, o$Q))),
     xlab="", ylab=substitute(paste("Q [mm ",res,""^{-1}, "]")), xaxt="n") 
     lines(o$d, o$Qobs, col="black")  
@@ -102,6 +102,7 @@ WALRUS_figures = function(o, pars, n)
            col=c("black","dodgerblue", "orange", "purple"),
            x="topleft", lty=1,  bty="n", cex=if(nrFigs==1){0.8}else{1})  
     legend(paste("NS=", round(pars$NS,2)), x="topright",  bty="n", cex=if(nrFigs==1){0.8}else{1})
+    if(nrFigs==2){legend(n, x="top",  bty="n")}
     
     
     ###########################

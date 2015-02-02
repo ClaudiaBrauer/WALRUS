@@ -56,7 +56,8 @@ assign("func_W_dV", cmpfun(func_W_dV_default), envir = .WALRUSenv)
 #' @description Changes the default wetness index function \code{func_W_dV}
 #' @param newfunc a function which computes wetness index \code{W} [unitless]
 #' from storage deficit \code{dV} [mm],
-#' with arguments \code{x} (here storage deficit).
+#' with arguments \code{x} (here storage deficit). 
+#' If ran with newfunc=NULL, the function will be reset to the default. 
 #' @return a function to be used as evapotranspiration reduction function.
 #' @export set_func_W_dV
 #' @examples
@@ -93,6 +94,7 @@ assign("func_dVeq_dG", cmpfun(func_dVeq_dG_default), envir = .WALRUSenv)
 #' @param newfunc a function which computes equilibrium storage deficit \code{dVeq} [mm]
 #' from grounwdater depth \code{dG} [mm],
 #' with arguments x (here storage deficit).
+#' If ran with newfunc=NULL, the function will be reset to the default. 
 #' @return a function to be used as evapotranspiration reduction function.
 #' @export set_func_dVeq_dG
 #' @examples
@@ -127,6 +129,7 @@ assign("func_beta_dV", cmpfun(func_beta_dV_default), envir = .WALRUSenv)
 #' @param newfunc a function which computes evapotranspiration reduction \code{beta} 
 #' (=ETact/ETpot) [unitless] from storage deficit \code{dV} [mm],
 #' with arguments \code{x} (here storage deficit).
+#' If ran with newfunc=NULL, the function will be reset to the default. 
 #' @return a function to be used as evapotranspiration reduction function.
 #' @export set_func_beta_dV
 #' @examples
@@ -171,7 +174,7 @@ assign("func_Q_hS", cmpfun(func_Q_hS_default), envir = .WALRUSenv)
 #' @description Changes the default stage-discharge relation \code{func_Q_hS}
 #' @param newfunc a function which computes discharge \code{Q} [mm/h] from stage height \code{hS} [mm],
 #' with arguments \code{x} (here stage height), \code{pars} (parameter set) and \code{hSmin} (weir height).
-#' If ran without arguments, the function will be reset to the default. 
+#' If ran with newfunc=NULL, the function will be reset to the default. 
 #' @return a function to be used as stage-discharge relation.
 #' @export set_func_Q_hS
 #' @examples

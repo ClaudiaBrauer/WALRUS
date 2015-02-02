@@ -1,3 +1,68 @@
+1.03: 
+==============================================
+
+Problem 1: 
+-------
+
+Running set_func_Q_hS() did not result in the default Q-hS relation (same holds for set_func_W_dV, set_func_dVeq_dG and set_func_beta_dV
+
+
+Solution 1: 
+---------
+
+The argument newfunc has to be set to NULL in all four functions (one shown here as example). The code didn't change, but the text in the help for these functions did.
+
+
+
+Problem 2: 
+-------
+
+WALRUS_GoF produces warning when observed or modeled discharge is zero. 
+
+
+Solution 2: 
+---------
+
+WALRUS_GoF only computes Nash-Sutcliffe of log(Q) when discharge is always above zero. 
+
+Code in version 1.02 (in GoF-script):
+	pars$NSlog  = round(1- sum((log(o$Qobs) - log(o$Q))^2, na.rm=TRUE) / sum((log(o$Qobs) - mean(log(o$Qobs)))^2, na.rm=TRUE), 3)
+ 
+
+Code in version 1.03 (in GoF-script):
+	pars$NSlog  = if(min(c(o$Q,o$Qobs)) > 0) {pars$NSlog = round(1- sum((log(o$Qobs) - log(o$Q))^2, na.rm=TRUE) / 
+                                            	sum((log(o$Qobs) - mean(log(o$Qobs)))^2, na.rm=TRUE), 3)}else{NA}
+
+
+
+Problem 3: 
+-------
+
+No snowmelt routine
+
+
+Solution 3: 
+---------
+
+Snowmelt routine added (extra script: WALRUS_snow)
+
+
+
+Problem 4: 
+-------
+
+Header for figures missing
+
+
+Solution 4: 
+---------
+
+Added header to plots in R.
+
+Addded code in version 1.03 (in figures-script):
+	if(nrFigs==2){legend(n, x="top",  bty="n")}
+
+
 
 
 1.02: 
