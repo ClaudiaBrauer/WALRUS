@@ -43,60 +43,59 @@ WALRUS_step = function(pars, i, t1, t2)
   dt_ok   = TRUE                       # stepsize small enough as default
 
   ### FLUXES (based on states from the start of this timestep [mm/timestep])
-  PQ      = P_t * i$W                                      *pars$aG
-  PV      = P_t * (1-i$W)                                  *pars$aG  
-  PS      = P_t                                            *pars$aS 
-  ETV     = ETpot_t * get("func_beta_dV", envir=.WALRUSenv)(i$dV)                   *pars$aG
-  ETS     = ETpot_t                                        *pars$aS
+  PQ      = P_t * i$W                                             *pars$aG
+  PV      = P_t * (1-i$W)                                         *pars$aG  
+  PS      = P_t                                                   *pars$aS 
+  ETV     = ETpot_t * get("func_beta_dV", envir=.WALRUSenv)(i$dV) *pars$aG
+  ETS     = ETpot_t                                               *pars$aS
   if(i$hS < p_num$min_h*1000){ETS = 0}        # no ET from empty channel
   ETact   = ETV + ETS  
-  fQS     = i$hQ                                           /pars$cQ *dt
+  fQS     = i$hQ / pars$cQ *dt
   fGS     = (pars$cD - i$dG - i$hS) * max((pars$cD - i$dG),i$hS) /pars$cG *dt
-  Q       = get("func_Q_hS", envir=.WALRUSenv)(i$hS, pars=pars, hSmin=hSmin_t)                  *dt
+  Q       = get("func_Q_hS", envir=.WALRUSenv)(i$hS, pars=pars, hSmin=hSmin_t) *dt
   
   ### STATES (at the end of this time step / start of next time step) [mm])
   # note that fluxes are already for the whole time step (multiplied with dt)
-  dV      = i$dV  - (fXG_t + PV - ETV - fGS          )     /pars$aG
-  hQ      = i$hQ  + (PQ - fQS                        )     /pars$aG
-  hS      = i$hS  + (fXS_t + PS - ETS + fGS + fQS - Q)     /pars$aS 
+  dV      = i$dV  - (fXG_t + PV - ETV - fGS          )            /pars$aG
+  hQ      = i$hQ  + (PQ - fQS                        )            /pars$aG
+  hS      = i$hS  + (fXS_t + PS - ETS + fGS + fQS - Q)            /pars$aS 
   dG      = i$dG  + (i$dV - i$dVeq) /pars$cV *dt       
-   
   
   
   ### SPECIAL CASE: LARGE-SCALE PONDING AND FLOODING
   if((dV < 0) | (hS > pars$cD))
   {
-    if((dV < 0) & (hS <= pars$cD))                 # if ponding and no flooding
+    if((dV < 0) & (hS <= pars$cD))                  # if ponding and no flooding
     {
-      hS  = hS + (-dV) *pars$aG /pars$aS              # all ponds to surface water
-      dV = 0                                    # soil moisture deficit to surface
+      hS  = hS + (-dV) *pars$aG /pars$aS            # all ponds to surface water
+      dV = 0                                        # soil moisture deficit to surface
     }
-    if((dV >= 0) & (hS > pars$cD))                 # if no ponding and flooding
+    if((dV >= 0) & (hS > pars$cD))                  # if no ponding and flooding
     {
-      dV  = dV - (hS-pars$cD) *pars$aS /pars$aG          # all floods into soil
-      hS  = pars$cD                                # channel bankfull
+      dV  = dV - (hS-pars$cD) *pars$aS /pars$aG     # all floods into soil
+      hS  = pars$cD                                 # channel bankfull
     }
-    if((dV <= 0) & (hS >= pars$cD))                # if ponding and flooding
+    if((dV <= 0) & (hS >= pars$cD))                 # if ponding and flooding
     {
-    dV  = dV*pars$aG - (hS-pars$cD)*pars$aS              # compute total excess water
+    dV  = dV*pars$aG - (hS-pars$cD)*pars$aS         # compute total excess water
     hS  = pars$cD - dV
     }  
-    if(dV < 0){dG = dV}                         # if ponding, groundwater to pond level
+    if(dV < 0){dG = dV}                             # if ponding, groundwater to pond level
   }  
 
   ### TEST IF STEP SIZE IS SMALL ENOUGH
-  if(hS < -p_num$min_h)                         # if hS below channel bottom
+  if(hS < -p_num$min_h)                             # if hS below channel bottom
   { 
     dt_ok = FALSE
     hS = p_num$min_h*100
-  }else if(hQ < -p_num$min_h)                   # if hQ below bottom Q-res.
+  }else if(hQ < -p_num$min_h)                       # if hQ below bottom Q-res.
   { 
     dt_ok = FALSE
     hQ = p_num$min_h
-  }else if(P_t > p_num$max_P_step)              # if too much rainfall added
+  }else if(P_t > p_num$max_P_step)                  # if too much rainfall added
   {
     dt_ok = FALSE 
-  }else if(abs(i$Q-Q) > p_num$max_dQ_step)      # if change in Q too big
+  }else if(abs(i$Q-Q) > p_num$max_dQ_step)          # if change in Q too big
   {
     dt_ok = FALSE
   }else if(abs(i$hS-hS) > p_num$max_h_change)   # if change in hS too big

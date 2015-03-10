@@ -8,7 +8,8 @@ set_func_beta_dV(newfunc)
 \arguments{
 \item{newfunc}{a function which computes evapotranspiration reduction \code{beta}
 (=ETact/ETpot) [unitless] from storage deficit \code{dV} [mm],
-with arguments \code{x} (here storage deficit).}
+with arguments \code{x} (here storage deficit).
+If ran with newfunc=NULL, the function will be reset to the default.}
 }
 \value{
 a function to be used as evapotranspiration reduction function.

@@ -39,25 +39,51 @@ WALRUS_loop = function(pars)
   pars$theta_s    = soil_char[["theta_s"]][soil_char[["st"]]==pars$st]
   pars$aG         = 1-pars$aS
   
-  # INITIAL CONDITIONS    
+  
+  ######################
+  ### INITIAL CONDITIONS 
+  ######################
+  
   # Q[1] is necessary for stepsize-check (if dQ too large)
-  o$Q     [1]  = func_Qobs(output_date[2]) / (output_date[2]-output_date[1]) *3600 
-
-  # hS from first Q measurement and Qh-relation
-  o$hS    [1]  = uniroot(f=function(x){return(
-                 get("func_Q_hS", envir=.WALRUSenv)(x,pars,hSmin=func_hSmin(output_date[1]))-o$Q[1])},
-                 lower=0, upper=pars$cD)$root 
-# dG and hQ    
-  if(is.null(pars$dG0)==FALSE)                           # if dG0 provided 
-  {
-    o$dG  [1]  = pars$dG0
-    if((pars$cD-o$dG[1])<o$hS[1])                        # if groundwater below surface water level
+  if(is.null(pars$Q0)==FALSE)
     {
-      o$hQ [1] = o$Q[1]*pars$cQ                          # all Q from quickflow
-    }else{                                               # if groundwater above surface water level
-      o$hQ [1] = max(0,(o$Q[1]-(pars$cD-o$dG[1]-o$hS[1])*(pars$cD-o$dG[1])/pars$cG) *pars$cQ)
+      o$Q[1]  = pars$Q0
+    }else{
+      o$Q[1]  = func_Qobs(output_date[2]) / (output_date[2]-output_date[1]) *3600
     }
 
+  # hS from first Q measurement and Qh-relation
+  if(is.null(pars$hS0)==FALSE)
+  {
+    o$hS[1]  = pars$hS0
+  }else{
+    o$hS[1]  = uniroot(f=function(x){return(
+      get("func_Q_hS", envir=.WALRUSenv)(x,pars,hSmin=func_hSmin(output_date[1]))-o$Q[1])},
+      lower=0, upper=pars$cD)$root 
+  }
+  
+  
+# dG and hQ    
+  if(is.null(pars$dG0)==FALSE)                            # if dG0 provided 
+  {
+    o$dG[1] = pars$dG0
+    if(is.null(pars$hQ0)==FALSE)                          # if hQ0 also provided 
+    {
+      o$hQ[1] = pars$hQ0
+    }else{                                                # if hQ0 not provided 
+      if((pars$cD-o$dG[1])<o$hS[1])                       # if groundwater below surface water level
+      {
+        o$hQ [1] = o$Q[1]*pars$cQ                         # all Q from quickflow
+      }else{                                              # if groundwater above surface water level
+        o$hQ [1] = max(0,(o$Q[1]-(pars$cD-o$dG[1]-o$hS[1])*(pars$cD-o$dG[1])/pars$cG) *pars$cQ)
+      }   
+    }
+    
+  }else if(is.null(pars$dG0)==TRUE & is.null(pars$hQ0)==FALSE) # if hQ0 provided but dG0 not
+  {
+    o$hQ[1] = pars$hQ0
+    o$dG[1] = max(0,uniroot(f=function(x){return((pars$cD-x-o$hS[1])*(pars$cD-x)/pars$cG - max((o$Q[1]-o$hQ[1]/pars$cQ),0))},
+                         lower=0, upper=(pars$cD-o$hS[1]))$root)
   }else{                                                 # if dG0 not provided 
     if(is.null(pars$Gfrac)==TRUE){pars$Gfrac=1}          # if Gfrac also not provided, make Gfrac 1
     # if fGS not possible with current hS and cG, make Gfrac smaller
@@ -67,16 +93,30 @@ WALRUS_loop = function(pars)
                          lower=0, upper=(pars$cD-o$hS[1]))$root
     o$hQ  [1]  = o$Q[1] *(1-pars$Gfrac) *pars$cQ    
   }
-  # dependent variables
-  o$dVeq [1]  = get("func_dVeq_dG", envir=.WALRUSenv)(o$dG[1], pars) 
-  o$dV   [1]  = o$dVeq[1]
-  o$W     [1]  = get("func_W_dV", envir=.WALRUSenv)(o$dV[1], pars)
-     
-  # 
+
+  # dVeq
+  o$dVeq [1]  = get("func_dVeq_dG", envir=.WALRUSenv)(o$dG[1], pars)   
+  
+  # dV
+  if(is.null(pars$dV0)==FALSE)
+  {
+    o$dV[1]  = pars$dV0
+  }else{
+    o$dV[1]  = o$dVeq[1]
+  }
+
+  # W
+  o$W    [1]  = get("func_W_dV", envir=.WALRUSenv)(o$dV[1], pars)
+
+  # prepare for-loop
   o_step       = o[1,]
   i            = o[1,]
-  
-  # RUN FOR-LOOP OVER ALL TIME STEPS
+
+
+  ####################################
+  ### RUN FOR-LOOP OVER ALL TIME STEPS
+  ####################################
+
   for (t in 2:L)
   {  
     start_step     = output_date[t-1]                  # start at begin of output step
