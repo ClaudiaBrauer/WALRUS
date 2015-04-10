@@ -1,7 +1,5 @@
 
-# Getting a feel for the parameters:
-
-## Using interactive parallel plots as a tool for parameter identification
+Getting a feel for the parameters: Using interactive parallel plots as a tool for parameter identification
 ------
 
 
