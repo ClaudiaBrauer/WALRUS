@@ -1,7 +1,6 @@
 
-Getting a feel for the parameters:
-------
-Using interactive parallel plots as a tool for parameter identification (under construction)
+# Getting a feel for the parameters:
+## Using interactive parallel plots as a tool for parameter identification (under construction)
 ------
 
 
@@ -9,12 +8,12 @@ Using interactive parallel plots as a tool for parameter identification (under c
 
 The structure and code of WALRUS are simple, which facilitates detailed investigation of the effect of parameters on all model variables. WALRUS contains only four parameters requiring calibration; they are intended to have a strong, qualitative relation with catchment characteristics. Parameter estimation remains a challenge, however. The model structure contains three main feedbacks: (1) between groundwater and surface water; (2) between saturated and unsaturated zone; (3) between catchment wetness and (quick/slow) flowroute division. These feedbacks represent essential rainfall-runoff processes in lowland catchments, but increase the risk of parameter dependence and equifinality.
 
-Therefore, model performance should not only be judged based on a comparison between modelled and observed discharges, but also based on the plausibility of the internal modelled variables. Here, we present a method to analyse the effect of parameter values on internal model states and fluxes in a qualitative and intuitive way using interactive parallel plotting (also in R).
+Therefore, model performance should not only be judged based on a comparison between modelled and observed discharges, but also based on the plausibility of the internal modelled variables. Here, we present a method to analyse the effect of parameter values on internal model states and fluxes in a qualitative and intuitive way using interactive parallel plotting.
 
 
 **Method**
 
-The model was run for the Hupsel Brook catchment with 500 parameter sets, which were created using Latin Hypercube Sampling. The model output was characterised in terms of several signatures, both measures of goodness of fit and statistics of internal model variables (such as the percentage of rain water travelling through the quickflow reservoir). End users can then eliminate parameter sets with unrealistic outcomes based on expert knowledge (and using interactive parallel plots). The resulting selection of realistic parameter sets can be used for ensemble simulations. 
+WALRUS was run for the Hupsel Brook catchment with 500 parameter sets, which were created using Latin Hypercube Sampling. The model output was characterised in terms of several signatures, both measures of goodness of fit and statistics of internal model variables (such as the fraction of discharged water that has travelled through the quickflow reservoir). End users can then eliminate parameter sets with unrealistic outcomes based on expert knowledge (and using interactive parallel plots). The resulting selection of realistic parameter sets can be used for ensemble simulations. 
 
 
 **Interactive parallel plots**
@@ -25,21 +24,21 @@ This is an example of an interactive parallel coordinate plot, which can be used
 
 [Click here to go to the interactive version of this plot](http://rawgit.com/ClaudiaBrauer/WALRUS/master/parallel_coordinates/parallel_coordinates_example/index.html)
 
-In this example 6 parameters were varied: 
-- cW: wetness index parameter
-- cV: vadose zone relaxation time (the model is not very sensitive to this parameter)
-- cG: groundwater reservoir constant
-- cQ: quickflow reservoir constant
-- cS: bankfull discharge (only necessary to calibrate when no stage-discharge relation is known)
-- cD: channel depth (usually not calibrated but based on field estimates)
+In this example we varied 6 parameters: 
+- *cW*: wetness index parameter
+- *cV*: vadose zone relaxation time (the model is not very sensitive to this parameter)
+- *cG*: groundwater reservoir constant
+- *cQ*: quickflow reservoir constant
+- *cS*: bankfull discharge (only necessary to calibrate when no stage-discharge relation is known)
+- *cD*: channel depth (usually not calibrated but based on field estimates)
 
-And 6 diagnostics were computed: 
-- NS_Q: Nash-Sutcliffe efficiency of discharge
-- NS_logQ: Nash-Sutcliffe efficiency of logarithm of discharge 
-- Q95: 95th percentile of discharge
-- ETred: Evapotranspiration reduction factor
-- frac_quick: Contribution of quickflow to the total discharge
-- t_SaboveG: Percentage of the time with surface water level above groundwaterwater level
+And we computed 6 diagnostics: 
+- *NS Q*: Nash-Sutcliffe efficiency of discharge
+- *NS logQ*: Nash-Sutcliffe efficiency of logarithm of discharge 
+- *Q95*: 95th percentile of discharge
+- *ETred*: Evapotranspiration reduction factor
+- *frac quick*: Contribution of quickflow to the total discharge
+- *t SaboveG*: Percentage of the time with surface water level above groundwaterwater level
 
 
 **Examples**
