@@ -1,6 +1,7 @@
 
 # Getting a feel for the parameters:
-## Using interactive parallel plots as a tool for parameter identification (under construction)
+
+## Using interactive parallel plots as a tool for parameter identification
 ------
 
 
@@ -13,7 +14,7 @@ Therefore, model performance should not only be judged based on a comparison bet
 
 **Method**
 
-WALRUS was run for the Hupsel Brook catchment with 500 parameter sets, which were created using Latin Hypercube Sampling. The model output was characterised in terms of several signatures, both measures of goodness of fit and statistics of internal model variables (such as the fraction of discharged water that has travelled through the quickflow reservoir). End users can then eliminate parameter sets with unrealistic outcomes based on expert knowledge (and using interactive parallel plots). The resulting selection of realistic parameter sets can be used for ensemble simulations. 
+WALRUS was run for the Hupsel Brook catchment with 500 parameter sets, which were created using Latin Hypercube Sampling. The model output was characterised in terms of several diagnostics, both measures of goodness of fit and statistics of internal model variables (such as the fraction of discharged water that has travelled through the quickflow reservoir). End users can then eliminate parameter sets with unrealistic signatures based on expert knowledge (and using interactive parallel plots). The resulting selection of realistic parameter sets can be used for ensemble simulations. 
 
 
 **Interactive parallel plots**
@@ -26,13 +27,13 @@ This is an example of an interactive parallel coordinate plot, which can be used
 
 In this example we varied 6 parameters: 
 - *cW*: wetness index parameter
-- *cV*: vadose zone relaxation time (the model is not very sensitive to this parameter)
+- *cV*: vadose zone relaxation time (the model is not very sensitive to cV)
 - *cG*: groundwater reservoir constant
 - *cQ*: quickflow reservoir constant
 - *cS*: bankfull discharge (only necessary to calibrate when no stage-discharge relation is known)
 - *cD*: channel depth (usually not calibrated but based on field estimates)
 
-And we computed 6 diagnostics: 
+and we computed 6 diagnostics: 
 - *NS Q*: Nash-Sutcliffe efficiency of discharge
 - *NS logQ*: Nash-Sutcliffe efficiency of logarithm of discharge 
 - *Q95*: 95th percentile of discharge
@@ -45,8 +46,8 @@ And we computed 6 diagnostics:
 
 You can use the interactive parallel plot also as help to understand how WALRUS works. Drag the bars and see whan happens to the parameters and diagnostics.
 
-- Which parameters cause much evapotranspiration reduction? Select only low values of ETred. You'll see that these results belong to runs with deep channels (cD high). When channels are deep, groundwater has to become deeper to get the same drainage flux. When groundwater is deep, the top soil is dry. When the top soil is dry, evapotranspiration is reduced.
+- Which parameters cause much evapotranspiration reduction? Select only low values of ETred. You'll see that these results belong to runs with deep channels (high cD). When channels are deep, groundwater has to become deeper to get the same drainage flux. When groundwater is deep, the top soil is dry. When the top soil is dry, evapotranspiration is reduced.
 
-- Which parameters cause high peak discharges? Select only high values of Q95. You'll see that these occur with high cW (much water led to quickflow reservoir), low cQ (sharp discharge peaks caused by fast quickflow reservoir) and low cD (shallow channels).
+- Which parameters cause high discharge peaks? Select only high values of Q95. You'll see that these occur with high cW (much water led to quickflow reservoir), low cQ (sharp discharge peaks caused by fast quickflow reservoir) and low cD (shallow channels).
 
-- Which parameters cause surface water infiltration during a large part of the year? Select only high values of t_SaboveG. You'll see that this happens when cD is small (shallow channels, leading to surface water levels close to the soil surface). The parameters cW, cQ and cS do not affect drainage conditions, but drainage conditions are highly correlated with the fraction of quickflow (frac_quick). 
+- Which parameters cause surface water infiltration during a large part of the year? Select only high values of t_SaboveG. You'll see that this happens when cD is small (shallow channels, leading to surface water levels close to the soil surface). The parameters cW, cQ and cS do not affect drainage conditions. Drainage conditions are highly correlated with the fraction of quickflow (frac_quick). 
