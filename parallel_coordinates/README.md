@@ -5,7 +5,7 @@ Parallel coordinates (under construction)
 This is an example of an interactive parallel coordinate plot, which can be used to explore the parameter space.
 
 
-[Parallel coordinate plot]: https://github.com/ClaudiaBrauer/WALRUS/tree/master/parallel_coordinates/parallel_coornidates_example.html
+[Parallel coordinate plot](/parallel_coornidates_example.html)
 
 
 **Parameters and diagnostics**
