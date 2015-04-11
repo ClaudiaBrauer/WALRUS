@@ -33,7 +33,7 @@ In this example we varied 6 parameters:
 
 and we computed 6 diagnostics: 
 - *NS Q*: Nash-Sutcliffe efficiency of discharge
-- *NS logQ*: Nash-Sutcliffe efficiency of logarithm of discharge 
+- *NS sqrtQ*: Nash-Sutcliffe efficiency of the square root of discharge 
 - *Q95*: 95th percentile of discharge
 - *ETred*: Evapotranspiration reduction factor
 - *frac quick*: Contribution of quickflow to the total discharge
