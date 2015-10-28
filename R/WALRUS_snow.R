@@ -84,6 +84,9 @@ WALRUS_snow = function (f, method)
   pack    = c()        
   pack[1] = snow[1]
   
+  # first time step
+  if(f$T[1]>snowpar[5]){melt[1] = 0}
+  
   # loop over time steps
   for(s in 2:nrow(f))
   {

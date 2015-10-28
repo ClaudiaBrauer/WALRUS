@@ -1,8 +1,8 @@
 Package: WALRUS
 Type: Package
 Title: The Wageningen Lowland Runoff Simulator (WALRUS)
-Version: 1.05
-Date: 2015-03-10
+Version: 1.06
+Date: 2015-08-31
 Author: Claudia Brauer
 Maintainer: Claudia Brauer <claudia.brauer@wur.nl>
 Description: The Wageningen Lowland Runoff Simulator (WALRUS) is a

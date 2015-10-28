@@ -19,14 +19,20 @@
 
 #' Preprocessing
 #' @description Preprocesses the forcing data.
-#' @param f a dataframe with forcing data: date in YYYYmmddhh or YYYmmdd format and columns with P, ETpot, Q (at least one value), fXG (optional), fXS (optional), dG (optional)
-#' @param dt the time step size increase (e.g. when given hourly data and want to producre daily model output, use 24.)
+#' @param f a dataframe with forcing data: date in YYYYmmddhh or YYYmmdd format and 
+#' columns with P, ETpot, Q (at least one value), fXG (optional), fXS (optional), dG (optional)
+#' @param dt the time step size increase (e.g. when given hourly data and want to 
+#' produce daily model output, use 24.)
+#' @param timestamp can be either "start" (default) or "end". Signifies whether the dates belong to
+#' the start or the end of the measurement interval. Example: using hourly data, the discharge data 
+#' behind 2015010105 is the discharge sum between 5 and 6 o'clock when timestamp="start" and 
+#' the sum between 4 and 5  o'clock when timestamp="end".
 #' @return a vector \code{output_date} with the moments on which output should be generated
 #' @export WALRUS_preprocessing
 #' @examples
 #' x=1
 #' 
-WALRUS_preprocessing = function(f, dt)
+WALRUS_preprocessing = function(f, dt, timestamp="start")
 {
   
   # separate files for separate variables?
@@ -34,7 +40,7 @@ WALRUS_preprocessing = function(f, dt)
   if(is.null(f$date )==TRUE){date=c(1:nrow(f)*dt*3600)}
   if(is.null(f$P    )==TRUE){print("Error: please supply P in forcing data frame")}
   if(is.null(f$ETpot)==TRUE){print("Error: please supply ETpot in forcing data frame")}
-  if(is.null(f$Q    )==TRUE){print("Error: please supply Q in forcing data frame")}
+  if(is.null(f$Q    )==TRUE){f$Q     =rep(0,nrow(f))}
   if(is.null(f$fXG  )==TRUE){f$fXG   =rep(0,nrow(f))}
   if(is.null(f$fXS  )==TRUE){f$fXS   =rep(0,nrow(f))}
   if(is.null(f$hSmin)==TRUE){f$hSmin =rep(0,nrow(f))}
@@ -80,6 +86,18 @@ WALRUS_preprocessing = function(f, dt)
       print("date not in format yyyymmdd, yyyymmddhh or yyyymmddhhmm")
     }
   }
+  
+	# if timestamps belong to the end of measurement period (for fluxes), move the dates forward, 
+	# such that the timestamps belong to the start of the measurement period.
+  # Move states (dG, hSmin) 
+  if(timestamp=="end")
+  {
+    date[2:length(date)] = date[1:(length(date)-1)]
+    date[1]              = date[2] - (date[3] - date[2])
+    f$dG[2:nrow(f)]      = f$dG[1:(nrow(f)-1)]  
+    f$hSmin[2:nrow(f)]   = f$hSmin[1:(nrow(f)-1)]  
+  }
+  
   # add t=-1 (necessary as starting point for cumulative functions)
   d_end     = date[nrow(f)] + (date[nrow(f)]-date[nrow(f)-1]) *dt
   
