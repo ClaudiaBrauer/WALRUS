@@ -1,4 +1,70 @@
 
+
+1.06: 
+==============================================
+
+Problem 1: 
+-------
+
+Printed error message when Q not provided. 
+
+
+Solution 1: 
+---------
+
+No error message printed
+
+Code in version 1.05 (in preprocessing-script):
+  if(is.null(f$Q)==TRUE){print("Error: please supply Q in forcing data frame")}
+
+
+Code in version 1.06 (in preprocessing-script):
+	if(is.null(f$Q)==TRUE){f$Q=rep(0,nrow(f))}
+
+
+Problem 2: 
+-------
+
+Snow melt simulated at t=1 when temperatture above zero
+
+
+Solution 2: 
+---------
+
+Code added in version 1.06 (in snow-script):
+	# first time step
+  	if(f$T[1]>snowpar[5]){melt[1] = 0}
+
+
+
+Problem 3: 
+-------
+
+No option for input data files provided with time stamps at the end of the measurement interval. 
+
+
+Solution 3:
+-------
+Added an extra argument to the preprocessing-script, with default .
+
+
+Code in version 1.05 (in preprocessing-script):
+	WALRUS_preprocessing = function(f, dt, timestamp="start")
+
+
+Code in version 1.06 (in preprocessing-script):
+	WALRUS_preprocessing = function(f, dt, timestamp="start")
+
+Code added in version 1.06 (in preprocessing-script):
+	if(timestamp=="end")
+	{
+	  date[2:length(date)] = date[1:(length(date)-1)]
+	  date[1]              = date[2] - (date[3] - date[2])
+	  f$dG[2:nrow(f)]      = f$dG[1:(nrow(f)-1)]  
+	  f$hSmin[2:nrow(f)]   = f$hSmin[1:(nrow(f)-1)]  
+	}
+
+
 1.05: 
 ==============================================
 
