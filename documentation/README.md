@@ -68,8 +68,8 @@ If you are interested in one of those reports, please send me an email (claudia.
 - Loos, R. E., 2015a. Making WALRUS applicable for large
   catchments: a case study in the Reusel catchment. Master's thesis,
   Wageningen University.
-- Loos, R. E., 2015b. Ontwikkeling van WALRUS-modellen voor FEWS
-  Vecht. Internship report (at Water Board Vechtstromen), Wageningen
+- Loos, R. E., 2015b. Development of WALRUS models for FEWS
+  Vecht (in Dutch). Internship report (at Water Board Vechtstromen), Wageningen
   University.
 - Loos, R. E., 2015c. Ontwikkeling van WALRUS-modellen voor FEWS
   Vecht. Tech. rep., Water Board Vechtstromen.
@@ -93,8 +93,8 @@ If you are interested in one of those reports, please send me an email (claudia.
   Board Rijn and IJssel), Wageningen University.
 - Van Dorst, L. F., in prep. Constructing a (semi-) distributed WALRUS with a
   focus on regional groundwater flow. Master's thesis, Wageningen University.
-- Verschaeren, B. P. J., 2015. Het scheiden van het effect van snelle en langzame
-  neerslag-afvoerprocessen in grondwaterdynamiek. Bachelor's thesis, Wageningen
+- Verschaeren, B. P. J., 2015. Dividing the effects of slow and fast rainfall-
+  runoff processes in groundwater dynamics (in Dutch). Bachelor's thesis, Wageningen
   University.
 - Waterval, J. G. J., 2014. Catchment comparison in the Netherlands - An
   attempt to cluster catchments based on hydrological behaviour. Bachelor's
