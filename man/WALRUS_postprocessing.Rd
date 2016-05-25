@@ -4,7 +4,7 @@
 \alias{WALRUS_postprocessing}
 \title{Postprocessing}
 \usage{
-WALRUS_postprocessing(o, pars, n)
+WALRUS_postprocessing(o, pars, n, figures = TRUE, residuals = FALSE)
 }
 \arguments{
 \item{o}{the output of a WALRUS run (result of \code{WALRUS_loop}).}
@@ -12,6 +12,10 @@ WALRUS_postprocessing(o, pars, n)
 \item{pars}{the parameter set used for the run.}
 
 \item{n}{the name of the run.}
+
+\item{figures}{plot results. Default=TRUE.}
+
+\item{residuals}{make a pdf with plots of residual analysis. Default=FALSE.}
 }
 \value{
 a file with time series of all model variables, a file with model parameters

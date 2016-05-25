@@ -23,12 +23,13 @@
 #' @param pars the parameter set used for the run.
 #' @param chunk_size the maximum number of time steps to run in one go (default 200,000).
 #' @param show_progress whether the progress should be printed to screen (default false).
+#' @param name character string with a name for the temporary file
 #' @return a data frame with the model output for all output time steps.
 #' @export WALRUS_loop_long
 #' @examples
 #' x=1
 #' 
-WALRUS_loop_long = function(pars, chunk_size=1e4, show_progress=FALSE)
+WALRUS_loop_long = function(pars, chunk_size=1e4, show_progress=FALSE, name="")
   {
 
   # Save output_date with different name
@@ -38,7 +39,8 @@ WALRUS_loop_long = function(pars, chunk_size=1e4, show_progress=FALSE)
   o = data.frame(matrix(nrow=0, ncol=10, dimnames=list(NULL, 
                  c("ETact","Q","fGS","fQS","dV","dVeq","dG","hQ","hS","W"))))
   options(scipen=999)                              # to suppress e-4 notation in data files
-  write.table(o, "output/output_temp.dat", row.names=FALSE) 
+  filename = paste0("output/output_temp_",name,".dat")
+  write.table(o, filename, row.names=FALSE) 
   
   # Run WALRUS in chunks
   nr_chunks       = ceiling(length(output_date_all) / chunk_size)
@@ -62,7 +64,7 @@ WALRUS_loop_long = function(pars, chunk_size=1e4, show_progress=FALSE)
       
       # Save output
       if(chunk_nr != 1){mod = mod[2:(chunk_size+1),]}
-      write(t(as.matrix(mod[,1:10])), file="output/output_temp.dat", ncolumns=10, append=TRUE)
+      write(t(as.matrix(mod[,1:10])), file=filename, ncolumns=10, append=TRUE)
       
       # Add last states to parameter files for first state
       pars$dV0 = mod$dV[chunk_size]
@@ -88,10 +90,10 @@ WALRUS_loop_long = function(pars, chunk_size=1e4, show_progress=FALSE)
   # Retrieve whole output_date for postprocessing
   output_date <<- output_date_all
   
-  write(t(as.matrix(mod[,1:10])), file="output/output_temp.dat", ncolumns=10, append=TRUE)
+  write(t(as.matrix(mod[,1:10])), file=filename, ncolumns=10, append=TRUE)
   rm(mod)
   
   # return complete data frame
-  return(read.table("output/output_temp.dat", header=TRUE))
+  return(read.table(filename, header=TRUE))
 
 }

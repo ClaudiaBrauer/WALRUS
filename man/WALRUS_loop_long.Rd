@@ -5,7 +5,8 @@
 \title{Use this function instead of \code{WALRUS_loop} when using very long time series.
 Divides the time series in chunks, calls \code{WALRUS_loop} and pasts output together.}
 \usage{
-WALRUS_loop_long(pars, chunk_size = 10000, show_progress = FALSE)
+WALRUS_loop_long(pars, chunk_size = 10000, show_progress = FALSE,
+  name = "")
 }
 \arguments{
 \item{pars}{the parameter set used for the run.}
@@ -13,6 +14,8 @@ WALRUS_loop_long(pars, chunk_size = 10000, show_progress = FALSE)
 \item{chunk_size}{the maximum number of time steps to run in one go (default 200,000).}
 
 \item{show_progress}{whether the progress should be printed to screen (default false).}
+
+\item{name}{character string with a name for the temporary file}
 }
 \value{
 a data frame with the model output for all output time steps.

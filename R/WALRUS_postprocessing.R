@@ -22,6 +22,8 @@
 #' @param o the output of a WALRUS run (result of \code{WALRUS_loop}).
 #' @param pars the parameter set used for the run.
 #' @param n the name of the run.
+#' @param figures plot results. Default=TRUE.
+#' @param residuals make a pdf with plots of residual analysis. Default=FALSE.
 #' @return a file with time series of all model variables, a file with model parameters 
 #' and goodness of fit, the water balance table (both in file and in R), a figure with
 #' time series of all model variables (both file and in R) and a figure with residual plots (file).
@@ -29,7 +31,7 @@
 #' @examples
 #' x=1
 #' 
-WALRUS_postprocessing = function(o, pars, n)
+WALRUS_postprocessing = function(o, pars, n, figures=TRUE, residuals=FALSE)
 {
   
   # write output file
@@ -42,9 +44,9 @@ WALRUS_postprocessing = function(o, pars, n)
   WALRUS_balance(o_new, p_new, n)
   
   # make plots of residuals
-  WALRUS_residuals(o_new, p_new, n)
+  if(residuals==TRUE){WALRUS_residuals(o_new, p_new, n)}
   
   # make figures
-  WALRUS_figures(o_new, p_new, n)  
+  if(figures==TRUE){WALRUS_figures(o_new, p_new, n)}
   
 }

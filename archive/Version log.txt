@@ -1,5 +1,135 @@
 
 
+
+1.09: 
+==============================================
+
+Problem 1: 
+---------
+
+If several runs of loop_long in parallel, then output_temp-file is overwritten.
+
+
+Solution 1: 
+-----------
+
+Code in version 1.08 (loop_long-script):
+	WALRUS_loop_long = function(pars, chunk_size=1e4, show_progress=FALSE)
+
+  	write.table(o, "output/output_temp.dat", row.names=FALSE) 
+
+      	write(t(as.matrix(mod[,1:10])), file="output/output_temp.dat", ncolumns=10, append=TRUE)
+
+  	return(read.table("output/output_temp.dat", header=TRUE))
+
+Code in version 1.09 (loop_long-script):
+	WALRUS_loop_long = function(pars, chunk_size=1e4, show_progress=FALSE, name="")
+
+	filename = paste0("output/output_temp_",name,".dat")
+
+  	write.table(o, filename, row.names=FALSE) 
+
+      	write(t(as.matrix(mod[,1:10])), file=filename, ncolumns=10, append=TRUE)
+
+  	return(read.table(filename, header=TRUE))
+
+
+Problem 2: 
+---------
+
+Error when plotting the output of a run of less than 5 days.
+
+
+Solution 2: 
+-----------
+
+Code in version 1.08 (figures-script):
+    plot(o$d, rollmean(o$ETpot, round(120/mean(dt)), fill=NA), col="grey", 
+         type="l", ylim=range(0,rollmean(o$ETpot, round(120/mean(dt)))*1.05),  
+         xlab="", ylab=substitute(paste("ET [mm d"^{-1}, "]")), xaxt="n")
+
+Code in version 1.09 (figures-script):
+    if(L* mean(dt) > 20*24){
+      plot(o$d, rollmean(o$ETpot, round(120/mean(dt)), fill=NA), col="grey", 
+           type="l", ylim=range(0,rollmean(o$ETpot, round(120/mean(dt)))*1.05),  
+           xlab="", ylab=substitute(paste("ET [mm d"^{-1}, "]")), xaxt="n")
+      lines(o$d, rollmean(o$ETact, round(120/mean(dt)), fill=NA), col="red")   
+    }else{
+      plot(o$d, o$ETpot, col="grey", 
+           type="l", ylim=range(0,rollmean(o$ETpot, round(120/mean(dt)))*1.05),  
+           xlab="", ylab=substitute(paste("ET [mm d"^{-1}, "]")), xaxt="n")
+      lines(o$d, o$ETact, col="red")   
+    }
+
+
+
+
+Problem 3: 
+---------
+
+Plots of residuals are automatically generated, but often not necessary. 
+Also, there should be an option not to make figures.
+
+Solution 3: 
+-----------
+
+Code in version 1.08 (postprocessing-script):
+	WALRUS_postprocessing = function(o, pars, n)
+	WALRUS_residuals(o_new, p_new, n)
+	WALRUS_figures(o_new, p_new, n)  
+
+Code in version 1.09 (postprocessing-script):
+	WALRUS_postprocessing = function(o, pars, n, figures=TRUE, residuals=FALSE)
+	if(residuals==TRUE){WALRUS_residuals(o_new, p_new, n)}
+	if(figures==TRUE){WALRUS_figures(o_new, p_new, n)}
+
+
+
+
+
+
+
+1.08: 
+==============================================
+
+Problem 1: 
+---------
+
+Error in output processing after loop_long.
+
+
+Solution 1: 
+-----------
+
+Code added in version 1.08 (loop_long-script):
+	output_date <<- output_date_all
+
+
+
+
+1.07: 
+==============================================
+
+Problem 1: 
+---------
+
+Memory overflow when running very long series.
+
+
+Solution 1: 
+-----------
+
+Time series cut up in chunks
+
+
+Code added in version 1.07 (defaults-script):
+	max_nr_steps = 200000
+
+New script with function added: WALRUS_loop_long
+
+
+
+
 1.06: 
 ==============================================
 
