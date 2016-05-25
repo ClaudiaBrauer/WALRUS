@@ -5,7 +5,6 @@ WALRUS studies
 
 **Our peer-reviewed work**
 
-WALRUS and its first applications have been published in two peer reviewed, open access, scientific journals:
 - C. C. Brauer, A. J. Teuling, P. J. J. F. Torfs, R. Uijlenhoet, 2014a. 
 The Wageningen Lowland Runoff Simulator (WALRUS): a lumped rainfall-runoff model for catchments with shallow groundwater, 
 Geoscientific Model Development, 7, 2313-2332, 
@@ -39,7 +38,6 @@ http://edepot.wur.nl/296285 .
 
 **Student reports Wageningen University**
 
-WALRUS has been applied in a number of studies. Many of those studies are MSc theses, MSc internships and BSc theses at Wageningen University. 
 If you are interested in one of those reports, please send me an email (claudia.brauer-at-wur.nl).
 
 - Bol, D. C. C., 2016. WALRUS hydrologic analysis of the Dwarsdiep,
@@ -55,7 +53,7 @@ If you are interested in one of those reports, please send me an email (claudia.
 - Heuvelink, D., 2106. The role of simultaneous occurrence of extreme
   precipitation and high groundwater levels in producing extreme discharges.
   Bachelor's thesis, Wageningen University.
-- Hilhorst, F. L. E., in prep. Improving WALRUS by including a river dynamic
+- Hilhorst, F. L. E., 2016. Improving WALRUS by including a river dynamic
   component. Master's thesis, Wageningen University.
 - Imhoff, R., in prep. The effect of climate change on the role of simultaneous
   occurrence of extreme precipitation events and wet soil conditions in
@@ -85,8 +83,7 @@ If you are interested in one of those reports, please send me an email (claudia.
   Master's thesis, Wageningen University.
 - Scholten, L. E., 2014. Predictions of discharge indices in `ungauged'
   catchments in the Netherlands. Bachelor's thesis, Wageningen University.
-- Slenters, V., 2014. WALRUS en WINFO: het simuleren van afvoeren voor een
-  nieuw voorwaarschuwingssysteem. Internship report (at Water Board Aa
+- Slenters, V., 2014. WALRUS and WINFO: simulating discharges for a new warning system (in Dutch). Internship report (at Water Board Aa
   and Maas), Wageningen University.
 - Ten Broek, J. M., 2014. Coupling WALRUS to SOBEK: Wageningen Lowland
   Runoff Simulator to 1D open water model. Internship report (at Water
@@ -99,7 +96,7 @@ If you are interested in one of those reports, please send me an email (claudia.
 - Waterval, J. G. J., 2014. Catchment comparison in the Netherlands - An
   attempt to cluster catchments based on hydrological behaviour. Bachelor's
   thesis, Wageningen University.
-- Waterval, J. G. J., in prep. The effect of managing a controlled water system
+- Waterval, J. G. J., 2016. The effect of managing a controlled water system
   on storage deficit and vegetation. Master's thesis, Wageningen University.
 - Wendt, D. E., 2015. Snow hydrology in the Netherlands: Developing snowmelt
   algorithms for Dutch regional water management modules. Internship report
