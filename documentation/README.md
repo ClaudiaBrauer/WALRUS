@@ -90,7 +90,7 @@ If you are interested in one of those reports, please send me an email (claudia.
   Board Rijn and IJssel), Wageningen University.
 - Van Dorst, L. F., in prep. Constructing a (semi-) distributed WALRUS with a
   focus on regional groundwater flow. Master's thesis, Wageningen University.
-- Verschaeren, B. P. J., 2015. Dividing the effects of slow and fast rainfall-
+- Verschaeren, B. P. J., 2015. Distinguishing between the effects of slow and fast rainfall-
   runoff processes in groundwater dynamics (in Dutch). Bachelor's thesis, Wageningen
   University.
 - Waterval, J. G. J., 2014. Catchment comparison in the Netherlands - An
