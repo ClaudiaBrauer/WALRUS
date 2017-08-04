@@ -1,3 +1,30 @@
+1.10: 
+==============================================
+
+Problem 1: 
+---------
+
+Postprocessing fails for runs than 5 days, because 5-day rolling mean for ET plot cannot be computed.
+
+
+Solution 1: 
+-----------
+
+Code in version 1.09 (figures-script):
+      lines(o$d, rollmean(o$ETact, round(120/mean(dt)), fill=NA), col="red")   
+
+Code in version 1.10 (figures-script):
+    if((o$d[nrow(o)]-o$d[1]) > (10*24*3600)){
+      plot(o$d, rollmean(o$ETpot, round(120/mean(dt)), fill=NA), col="grey", 
+           type="l", ylim=range(0,rollmean(o$ETpot, round(120/mean(dt)))*1.05),  
+           xlab="", ylab=substitute(paste("ET [mm d"^{-1}, "]")), xaxt="n")
+      lines(o$d, rollmean(o$ETact, round(120/mean(dt)), fill=NA), col="red")   
+    }else{
+      plot(o$d, o$ETpot, col="grey", 
+           type="l", ylim=range(0,o$ETpot)*1.05,  
+           xlab="", ylab=substitute(paste("ET [mm d"^{-1}, "]")), xaxt="n")
+      lines(o$d, o$ETact, col="red")   
+    }
 
 
 
