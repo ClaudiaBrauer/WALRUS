@@ -42,7 +42,7 @@ www.hydrol-earth-syst-sci.net/18/4007/2014/hess-18-4007-2014.pdf .
 - C.C. Brauer, A. Overeem, H. Leijnse, R. Uijlenhoet (2016):
 The effect of differences between rainfall measurement techniques on groundwater and discharge simulations in a lowland catchment,
 Hydrological Processes, 30, 3885–3900,
-http://onlinelibrary.wiley.com/doi/10.1002/hyp.10898/epdf
+http://onlinelibrary.wiley.com/doi/10.1002/hyp.10898/epdf .
 
 WALRUS is also part of a PhD thesis:
 - C.C. Brauer (2014):
