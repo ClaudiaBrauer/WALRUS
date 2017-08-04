@@ -22,8 +22,7 @@ http://edepot.wur.nl/296285 .
 J. Nossent, F. Pereira, H. Savenije, G. Thirel, P. Willems (2017): 
 Looking beyond general metrics for model comparison–lessons from an international model intercomparison study,
 Hydrology and Earth System Siences, 21, 423-440,
-http://www.hydrol-earth-syst-sci.net/21/423/2017/
-
+www.hydrol-earth-syst-sci.net/21/423/2017/hess-21-423-2017.pdf .
 
 **Peer-reviewed work by other groups**
 
