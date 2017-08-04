@@ -39,6 +39,10 @@ http://www.geosci-model-dev.net/7/2313/2014/gmd-7-2313-2014.pdf .
 The Wageningen Lowland Runoff Simulator (WALRUS): application to the Hupsel Brook catchment and Cabauw polder, 
 Hydrology and  Earth System Sciences, 18, 4007-4028,
 www.hydrol-earth-syst-sci.net/18/4007/2014/hess-18-4007-2014.pdf .
+- C.C. Brauer, A. Overeem, H. Leijnse, R. Uijlenhoet (2016):
+The effect of differences between rainfall measurement techniques on groundwater and discharge simulations in a lowland catchment,
+Hydrological Processes, 30, 3885–3900,
+http://onlinelibrary.wiley.com/doi/10.1002/hyp.10898/epdf
 
 WALRUS is also part of a PhD thesis:
 - C.C. Brauer (2014):
@@ -67,7 +71,7 @@ WALRUS is free software: you can redistribute it and/or modify it under the term
 
 **Acknowledgements**
 
-The development and publication of WALRUS has been financially supported by the Hydrology and Quantitative Water Management Group of Wageningen University (The Netherlands - www.wageningenur.nl/hwm) and four Dutch water authorities: Water Board Aa and Maas, Water Board De Dommel, Water Board Noorderzijlvest and Water Board Rijn and IJssel.
+The development and publication of WALRUS has been financially supported by the Hydrology and Quantitative Water Management Group of Wageningen University (The Netherlands - www.hwm.wur.nl) and four Dutch water authorities: Water Board Aa and Maas, Water Board De Dommel, Water Board Noorderzijlvest and Water Board Rijn and IJssel.
 
 
 ![WALRUS sponsors](documentation/figures/logos_sponsors_WALRUS.png)
