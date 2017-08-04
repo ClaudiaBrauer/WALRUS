@@ -17,10 +17,12 @@ www.hydrol-earth-syst-sci.net/18/4007/2014/hess-18-4007-2014.pdf .
 Modelling rainfall-runoff processes in lowland catchments,
 PhD thesis, Wageningen University, The Netherlands,
 http://edepot.wur.nl/296285 .
-- C. C. Brauer, A. Overeem, H. Leijnse and R. Uijlenhoet, in press. The effect
-  of differences between rainfall measurement techniques on groundwater and
-  discharge simulations in a lowland catchment. Hydrol. Proc.
-
+- C. C. Brauer, A. Overeem, H. Leijnse and R. Uijlenhoet, in press. The effect of differences between rainfall measurement techniques on groundwater and discharge simulations in a lowland catchment. Hydrological Processes, 30, 3885–3900, http://onlinelibrary.wiley.com/doi/10.1002/hyp.10898/epdf .
+- T. de Boer-Euser, L. Bouaziz, J. De Niel, C. Brauer, B. Dewals, G. Drogue, F. Fenicia, B. Grelier, 
+J. Nossent, F. Pereira, H. Savenije, G. Thirel, P. Willems (2017): 
+Looking beyond general metrics for model comparison–lessons from an international model intercomparison study,
+Hydrology and Earth System Siences, 21, 423-440,
+http://www.hydrol-earth-syst-sci.net/21/423/2017/
 
 
 **Peer-reviewed work by other groups**
