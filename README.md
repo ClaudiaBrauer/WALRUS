@@ -53,7 +53,7 @@ http://edepot.wur.nl/296285 .
 For Dutch water managers and engineers:
 - Claudia Brauer, Paul Torfs, Ryan Teuling en Remko Uijlenhoet (2016): 
 De Wageningen Lowland Runoff Simulator (WALRUS): een snel neerslag-afvoermodel speciaal voor laaglandstroomgebieden,
-Stromingen, 22:1, 2--18 (in Dutch), http://edepot.wur.nl/390418 .
+Stromingen, 22:1, 2-18, http://edepot.wur.nl/390418 .
 
 To facilitate application of WALRUS, we wrote a [user manual](https://github.com/ClaudiaBrauer/WALRUS/blob/master/documentation/WALRUS_manual.pdf), which is provided in the documentation-folder, together with the two papers.
 
