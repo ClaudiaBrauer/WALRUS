@@ -29,6 +29,7 @@ www.hydrol-earth-syst-sci.net/21/423/2017/hess-21-423-2017.pdf .
 - Sterk, A., Schijven, J., de Roda Husman, A. M., de Nijs, T., 2016. Effect of
   climate change on runoff of campylobacter and cryptosporidium from land to
   surface water. Water Res. 95, 90-102.
+- Wijngaard, R.R., van der Perk, M., van der Grift, B., de Nijs, T. C., Bierkens, M. F., 2017. The Impact of Climate Change on Metal Transport in a Lowland Catchment. Water, Air, & Soil Pollution, 228(3), 107.
 - Yan, R., Gao, J., Huang, J., 2016. Walrus-paddy model for simulating the
   hydrological processes of lowland polders with paddy fields and pumping
   stations. Agr. Water Manage. 169, 148-161.
