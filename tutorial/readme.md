@@ -24,3 +24,5 @@ The zip file contains
 - Scripts
 - Example data
 - Source code
+
+Doing the whole tutorial takes 3-5 hours (depending on your background), but you can learn the basics in 1-2 hours.
