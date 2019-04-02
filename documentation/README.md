@@ -32,4 +32,4 @@ www.sciencedirect.com/science/article/pii/S2213305418300249
 
 **Other work**
 
-For peer-reviewed work by other groups and student reports from Wageningen University, see x.
+For peer-reviewed work by other groups and student reports from Wageningen University, see [this overview](https://github.com/ClaudiaBrauer/WALRUS/blob/master/documents/References_WALRUS.pdf).
