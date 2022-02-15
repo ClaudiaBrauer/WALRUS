@@ -39,19 +39,6 @@ http://www.geosci-model-dev.net/7/2313/2014/gmd-7-2313-2014.pdf
 The Wageningen Lowland Runoff Simulator (WALRUS): application to the Hupsel Brook catchment and Cabauw polder, 
 Hydrology and  Earth System Sciences, 18, 4007-4028,
 www.hydrol-earth-syst-sci.net/18/4007/2014/hess-18-4007-2014.pdf
-- C.C. Brauer, A. Overeem, H. Leijnse, R. Uijlenhoet (2016):
-The effect of differences between rainfall measurement techniques on groundwater and discharge simulations in a lowland catchment,
-Hydrological Processes, 30, 3885–3900,
-http://onlinelibrary.wiley.com/doi/10.1002/hyp.10898/epdf
-- T. de Boer-Euser, L. Bouaziz, J. De Niel, C. Brauer, B. Dewals, G. Drogue, F. Fenicia, B. Grelier, J. Nossent, F. Pereira, H. Savenije, G. Thirel, P. Willems (2017): 
-Looking beyond general metrics for model comparison–lessons from an international model intercomparison study,
-Hydrol. Earth Syst. Sci., 21, 423-440,
-www.hydrol-earth-syst-sci.net/21/423/2017/hess-21-423-2017.pdf 
-- A. Pijl, C.C. Brauer, G. Sofia, A.J. Teuling, P. Tarolli (2018):
-Hydrologic impacts of changing land use and climate in the Veneto lowlands of Italy,
-Anthropocene, 22, 20-30,
-www.sciencedirect.com/science/article/pii/S2213305418300249
-
 
 WALRUS is also part of a PhD thesis:
 - C.C. Brauer (2014):
@@ -68,6 +55,42 @@ To facilitate application of WALRUS, we wrote a [user manual](https://github.com
 
 ![The WALRUS-publications](documentation/figures/WALRUS_publications.png)
 
+
+**Other publications**
+
+- C.C. Brauer, A. Overeem, H. Leijnse, R. Uijlenhoet (2016):
+The effect of differences between rainfall measurement techniques on groundwater and discharge simulations in a lowland catchment,
+Hydrological Processes, 30, 3885–3900,
+http://onlinelibrary.wiley.com/doi/10.1002/hyp.10898/epdf
+- T. de Boer-Euser, L. Bouaziz, J. De Niel, C. Brauer, B. Dewals, G. Drogue, F. Fenicia, B. Grelier, J. Nossent, F. Pereira, H. Savenije, G. Thirel, P. Willems (2017): 
+Looking beyond general metrics for model comparison–lessons from an international model intercomparison study,
+Hydrol. Earth Syst. Sci., 21, 423-440,
+www.hydrol-earth-syst-sci.net/21/423/2017/hess-21-423-2017.pdf 
+- A. Pijl, C.C. Brauer, G. Sofia, A.J. Teuling, P. Tarolli (2018):
+Hydrologic impacts of changing land use and climate in the Veneto lowlands of Italy,
+Anthropocene, 22, 20-30,
+www.sciencedirect.com/science/article/pii/S2213305418300249
+- D. Heuvelink, M. Berenguer, C.C. Brauer, R. Uijlenhoet (2020): 
+Hydrological application of radar rainfall nowcasting in the Neherlands, 
+Environ. Int., 136 , 105431, 
+https://www.sciencedirect.com/science/article/pii/S0160412019327746?via%3Dihub
+- Y. Sun, W. Bao, K. Valk, C.C. Brauer, J. Sumihar, A.H. Weerts (2020):
+Improving forecast skill of lowland hydrological models using ensemble Kalman filter and unscented Kalman filter,
+Water Resour. Res. 56, e2020WR027468,
+https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020WR027468
+- L.J.E. Bouaziz, G. Thirel, T. de Boer-Euser, L.A. Melsen, J. Buitink, C.C. Brauer, J. De Niel, S. Moustakas, P. Willems, B. Grelier, 
+G. Drogue, F. Fenicia, J. Nossent, F. Pereira, E. Sprokkereef, J. Stam, B.J. Dewals, A.H. Weerts, H.H.G. Savenije and M. Hrachowitz (2021)
+Behind the scenes of streamflow model performance,
+Hydrol. Earth Syst. Sci., 25, 2069-2095,
+https://hess.copernicus.org/articles/21/423/2017/hess-21-423-2017.pdf
+- R.O. Imhoff, C.C. Brauer, K.-J. van Heeringen, H. Leijnse, A. Overeem, A. Weerts and R. Uijlenhoet (2021):
+A climatological benchmark for operational radar rainfall bias reduction,
+Hydrol. Earth Syst. Sci., 25, 4061-4080,
+https://hess.copernicus.org/articles/25/4061/2021/hess-25-4061-2021.pdf
+- R.O. Imhoff, C.C. Brauer, K.J. van Heeringen, R. Uijlenhoet, A.H. Weerts (under review),
+Large-sample evaluation of radar rainfall nowcasting for flood early warning,
+Water Resour. Res.,
+https://www.essoar.org/pdfjs/10.1002/essoar.10508734.1
 
 **User contributions**
 
