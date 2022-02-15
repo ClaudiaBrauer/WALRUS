@@ -86,7 +86,7 @@ https://hess.copernicus.org/articles/21/423/2017/hess-21-423-2017.pdf
 - P.C. Astagneau, G. Thirel, O. Delaigue, J.H.A. Guillaume, J. Parajka, C.C. Brauer, A. Viglione, W. Buytaert and K.J. Beven (2021): 
 Technical note: Hydrology modelling R packages – a unified analysis of models and practicalities from a user perspective, 
 Hydrol. Earth Syst. Sci., 25, 3937–3973, 
-https://doi.org/10.5194/hess-25-3937-2021, 2021
+https://doi.org/10.5194/hess-25-3937-2021
 - R.O. Imhoff, C.C. Brauer, K.-J. van Heeringen, H. Leijnse, A. Overeem, A. Weerts and R. Uijlenhoet (2021):
 A climatological benchmark for operational radar rainfall bias reduction,
 Hydrol. Earth Syst. Sci., 25, 4061-4080,
