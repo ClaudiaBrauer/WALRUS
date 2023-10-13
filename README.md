@@ -88,4 +88,4 @@ WALRUS is free software: you can redistribute it and/or modify it under the term
 
 ![WUR logo](documentation/figures/wu.png).
 
-[Hydrology and Quantitative Water Management Group](https://www.hwm.wur.nl), Wageningen University, The Netherlands
+[Hydrology and Environmental Hydraulics Group](https://www.hwm.wur.nl), Wageningen University, The Netherlands
