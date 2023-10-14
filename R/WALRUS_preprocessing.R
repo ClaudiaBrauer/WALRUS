@@ -111,7 +111,7 @@ WALRUS_preprocessing = function(f, dt, timestamp="start")
   func_fXG    <<- cmpfun(approxfun(forcing_date, cumsum(c(0,f$fXG   )), rule=2))
   func_fXS    <<- cmpfun(approxfun(forcing_date, cumsum(c(0,f$fXS   )), rule=2))
   func_hSmin  <<- cmpfun(approxfun(forcing_date, c(f$hSmin,f$hSmin[nrow(f)]), rule=2))
-  func_dGobs  <<- cmpfun(approxfun(forcing_date, c(f$dG   ,f$hSmin[nrow(f)]), rule=2))
+  func_dGobs  <<- cmpfun(approxfun(forcing_date, c(f$dG   ,f$dG[nrow(f)]), rule=2))
   
 
   # make output date vector and belonging function
